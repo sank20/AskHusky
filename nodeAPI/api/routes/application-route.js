@@ -14,13 +14,49 @@ module.exports = function (expressApp) {
 
     const userController = require('../controller/user-controller');
     expressApp.route('/signup')
-        .post(userController.signup)
+        .post(userController.signup);
+    expressApp.route('/login')
+        .post(userController.login);
 
 
     //-- Question
 
+    const questionController = require('../controller/question-controller');
+
+    expressApp.route('/questions')
+        .get(questionController.list)
+        .post(questionController.post);
+
+    /**
+     * Routes '/questions/:questionID' endpoints to get, Update, Delete a question
+     *
+     * @param 'questions/:questionID'
+     */
+    expressApp.route('/questions/:questionID')
+        .get(questionController.get)
+        .put(questionController.put)
+        .delete(questionController.delete);
 
     // -- Answer
+
+
+    // -- Tags
+
+    const tagController = require('../controller/tag-controller');
+
+    expressApp.route('/tags')
+        .get(tagController.list)
+        .post(tagController.post);
+
+    /**
+     * Routes '/tags/:tagID' endpoints to get, Update, Delete a tag
+     *
+     * @param 'tags/:tagID'
+     */
+    expressApp.route('/tags/:tagID')
+        .get(tagController.get)
+        .put(tagController.put)
+        .delete(tagController.delete);
 
 
     // -- Meeting/Event
