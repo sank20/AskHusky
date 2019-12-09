@@ -1,0 +1,18 @@
+<form #eventForm="ngForm" (ngSubmit)="submitEvent(eventForm.form);">
+
+  <input type="text"
+         class="form-control"
+         name="request-title"
+         ngModel
+         #titleField="ngModel"
+         required
+         minlength="5">
+  <div class="alert alert-danger"
+       *ngIf="titleField.errors.minlength">
+    The company name should be at least {{ titleField.errors.minlength.requiredLength }} characters long
+  </div>
+
+
+  <button class="btn btn-primary" [disabled]="!eventForm.valid">Submit</button>
+  <button class="btn btn-primary" (click)="eventForm.reset()">Cancel</button>
+</form>
