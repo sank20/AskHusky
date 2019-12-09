@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -11,6 +12,8 @@ import {LoginSignupService} from './services/login-signup.service';
 import {HttpClientModule} from '@angular/common/http';
 import { CalanderEventComponent } from './components/calander-event/calander-event.component';
 import { EventRequestComponent } from './components/event-request/event-request.component';
+import { ArchwizardModule } from 'angular-archwizard';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { EventRequestComponent } from './components/event-request/event-request.
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ArchwizardModule,
+    NgbModule
   ],
   providers: [LoginSignupService],
   bootstrap: [AppComponent]

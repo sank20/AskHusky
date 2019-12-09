@@ -1,7 +1,21 @@
 <h1>Signup</h1>
-<form (ngSubmit)="signupUser()">
-<label for="username">Username: </label><input type = "text" name="username" id="username" [(ngModel)]="user.userName"><br><br>
-<label for="password">Password: </label><input type = "password" name="password" id = "password" [(ngModel)]="user.password"><br><br>
-<label for="email">Email ID: </label><input type = "email" name="email" id = "email" [(ngModel)]="user.email"><br><br>
-<button type = "submit">SIGNUP</button>
+<form (ngSubmit)="signupUser()" id="regForm">
+  <aw-wizard>
+    <aw-wizard-step stepTitle="Title of step 1">
+    <label for="username">Username: </label><input type = "text" name="username" id="username" [(ngModel)]="user.userName"><br><br>
+      <button type="button" awNextStep>Next Step</button>
+      <button type="button" [awGoToStep]="{stepIndex: 2}">Go directly to third Step</button>
+    </aw-wizard-step>
+    <aw-wizard-step stepTitle="Title of step 2" awOptionalStep>
+    <label for="password">Password: </label><input type = "password" name="password" id = "password" [(ngModel)]="user.password"><br><br>
+      <button type="button" awPreviousStep>Go to previous step</button>
+      <button type="button" awNextStep>Go to next step</button>
+    </aw-wizard-step>
+    <aw-wizard-step stepTitle="Title of step 3">
+    <label for="email">Email ID: </label><input type = "email" name="email" id = "email" [(ngModel)]="user.email"><br><br>
+      <button type="button" awPreviousStep>Previous Step</button>
+      <button type = "submit">SIGNUP</button>
+    </aw-wizard-step>
+
+  </aw-wizard>
 </form>
