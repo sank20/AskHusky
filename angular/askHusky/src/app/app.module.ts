@@ -9,6 +9,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FormsModule} from '@angular/forms';
 import {LoginSignupService} from './services/login-signup.service';
 import {HttpClientModule} from '@angular/common/http';
+import { ArchwizardModule } from 'angular-archwizard';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ArchwizardModule,
+    NgbModule
   ],
   providers: [LoginSignupService],
   bootstrap: [AppComponent]
