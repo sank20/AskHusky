@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -15,5 +15,9 @@ export class NavbarComponent implements OnInit {
 
   goToProfile() {
     this.router.navigate(['/profile/:id']);
+  }
+
+  goToCreateQuestion() {
+    this.router.navigate(['/create-question']);
   }
 }
