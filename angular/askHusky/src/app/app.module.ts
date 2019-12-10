@@ -10,10 +10,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FormsModule} from '@angular/forms';
 import {LoginSignupService} from './services/login-signup.service';
 import {HttpClientModule} from '@angular/common/http';
+import { CreateQuestionComponent } from './components/create-question/create-question.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { CalanderEventComponent } from './components/calander-event/calander-event.component';
 import { EventRequestComponent } from './components/event-request/event-request.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { QuestionsListComponent } from './components/questions-list/questions-list.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +24,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     SignupComponent,
     DashboardComponent,
+    CreateQuestionComponent,
+    ProfileComponent,
     CalanderEventComponent,
-    EventRequestComponent
+    EventRequestComponent,
+    QuestionsListComponent
   ],
   imports: [
     BrowserModule,
