@@ -9,7 +9,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FormsModule} from '@angular/forms';
 import {LoginSignupService} from './services/login-signup.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CalanderEventComponent } from './components/calander-event/calander-event.component';
@@ -19,7 +19,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { QuestionsListComponent } from './components/questions-list/questions-list.component';
-
+import {HttpInterceptor} from '@angular/common/http';
+import {TokenInterceptorService} from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,11 @@ import { QuestionsListComponent } from './components/questions-list/questions-li
     NgbModule,
     NgMultiSelectDropDownModule.forRoot()
   ],
-  providers: [LoginSignupService],
+  providers: [LoginSignupService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

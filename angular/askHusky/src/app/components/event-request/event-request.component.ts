@@ -16,7 +16,7 @@ export class EventRequestComponent implements OnInit {
   constructor(private eventServiceService: EventServiceService, private loginSignupService: LoginSignupService, private router: Router) { }
 
   ngOnInit() {
-    this.user = this.loginSignupService.getLoggedInUser();
+    // this.user = this.loginSignupService.getLoggedInUser();
   }
 
   submitRequestEvent(form){
