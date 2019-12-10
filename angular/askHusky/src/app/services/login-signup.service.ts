@@ -23,10 +23,15 @@ export class LoginSignupService {
       return this.http.post(this.baseUri + '/login', user, {headers: this.headers});
   }
 
+
+  fetchTags(){
+    return this.http.get(this.baseUri + '/tags', {headers: this.headers});}
+
   changePassword(changePasswordObj: object) {
     return this.http.put(this.baseUri + '/changePassword', changePasswordObj, {headers: this.headers});
   }
 getLoggedInUser() {
     return this.user;
+
   }
 }
