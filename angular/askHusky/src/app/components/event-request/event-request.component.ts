@@ -19,8 +19,8 @@ export class EventRequestComponent implements OnInit {
     this.user = this.loginSignupService.getLoggedInUser();
   }
 
-  submitRequestEvent(form) {
-    form = { ...form.value, 'request-organizer': 'Rsg', 'request-attendee': null};
+  submitRequestEvent(form){
+    form = { ...form.value, organizer: 'Rsg',attendees:null,requestStatus:null,questionID:null};
     this.eventServiceService.createRequest(form);
     console.log(form);
     form.reset();

@@ -16,7 +16,10 @@ import { CalanderEventComponent } from './components/calander-event/calander-eve
 import { EventRequestComponent } from './components/event-request/event-request.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { QuestionsListComponent } from './components/questions-list/questions-list.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { QuestionsListComponent } from './components/questions-list/questions-li
     LoginComponent,
     SignupComponent,
     DashboardComponent,
+    HomepageComponent,
     CreateQuestionComponent,
     ProfileComponent,
     CalanderEventComponent,
@@ -36,7 +40,8 @@ import { QuestionsListComponent } from './components/questions-list/questions-li
     FormsModule,
     HttpClientModule,
     ArchwizardModule,
-    NgbModule
+    NgbModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [LoginSignupService],
   bootstrap: [AppComponent]
