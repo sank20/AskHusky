@@ -12,13 +12,14 @@ import {LoginSignupService} from './services/login-signup.service';
 import {HttpClientModule} from '@angular/common/http';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { CalanderEventComponent } from './components/calander-event/calander-event.component';
 import { EventRequestComponent } from './components/event-request/event-request.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './components/homepage/homepage.component';
+// @ts-ignore
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { QuestionsListComponent } from './components/questions-list/questions-list.component';
+import { EventViewRequestsComponent } from './components/event-view-requests/event-view-requests.component';
 
 
 @NgModule({
@@ -30,9 +31,9 @@ import { QuestionsListComponent } from './components/questions-list/questions-li
     HomepageComponent,
     CreateQuestionComponent,
     ProfileComponent,
-    CalanderEventComponent,
     EventRequestComponent,
-    QuestionsListComponent
+    QuestionsListComponent,
+    EventViewRequestsComponent
   ],
   imports: [
     BrowserModule,

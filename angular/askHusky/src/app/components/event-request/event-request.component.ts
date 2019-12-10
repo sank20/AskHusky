@@ -21,11 +21,15 @@ export class EventRequestComponent implements OnInit {
 
   submitRequestEvent(form) {
 
-    form = { ...form.value, organizer: 'darshandedhia', attendees: 'darshan24111993', requestStatus: 'INITIATED', questionID: '5dee8a09f79ddc1c04fa4996' };
+    // tslint:disable-next-line:max-line-length
+    const newVar = {...form.value, organizer: this.user.userName, attendees: 'darshan24111993', requestStatus: 'INITIATED', questionID: '5dee8a09f79ddc1c04fa4996' };
+    // tslint:disable-next-line:prefer-const one-variable-per-declaration
+    newVar.date = new Date(newVar.date.year, newVar.date.month, newVar.date.day);
+    form.time = (form.time.hour + ':' + form.time.minute + ':' + form.time.second );
     this.eventServiceService.createRequest(form).subscribe(
       data => console.log(data),
       error => console.log(error));
-    console.log(form);
+    // console.log(form);
     form.reset();
   }
 
