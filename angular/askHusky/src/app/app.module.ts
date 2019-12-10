@@ -22,7 +22,7 @@ import {HttpInterceptor} from '@angular/common/http';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { EventViewRequestsComponent } from './components/event-view-requests/event-view-requests.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { JwPaginationComponent } from 'jw-ang
+import {JwPaginationComponent} from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
