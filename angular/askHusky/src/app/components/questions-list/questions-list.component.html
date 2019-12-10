@@ -1,1 +1,18 @@
-<p>questions-list works!</p>
+<div class="main-container">
+  <div class="list-container">
+    <div *ngFor="let question of pageOfItems">
+      <div class="question-item">
+        <div class="question-title">{{question.title}}</div>
+        <div class="question-description">{{question.description}}</div>
+        <div class="answer-count">{{question.answers.length}} Answers</div>
+        <div class="date-created">Posted on: {{question.dateCreated}}</div>
+        <div class="author-name">Posted by: {{question.userName}}</div>
+        <div class="top-answer"><br>{{question.topAnswerUser}}: {{question.topAnswerContent}}</div>
+      </div>
+      <br>
+    </div>
+  </div>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination [items]="questions" [pageSize]="6" (changePage)="onChangePage($event)"></jw-pagination>
+  </div>
+</div>
