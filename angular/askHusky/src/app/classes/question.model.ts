@@ -46,5 +46,8 @@ import {Answer} from './answer.model';
 export class Question {
   public id: string;
   public dateCreated: Date;
-  constructor( public userId: string, public title: string, public description: string, public tags: Array<string>, public answers: Array<Answer>, public spamCount: number, public isActive: boolean) {}
+  public topAnswerId: string;
+  public topAnswerContent: string;
+  public topAnswerUser: string;
+  constructor(public userName: string, public title: string, public description: string, public tags: Array<string>, public answers: Array<Answer>, public spamCount: number, public isActive: boolean) {}
 }

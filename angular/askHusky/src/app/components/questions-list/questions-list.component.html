@@ -6,7 +6,8 @@
         <div class="question-description">{{question.description}}</div>
         <div class="answer-count">{{question.answers.length}} Answers</div>
         <div class="date-created">Posted on: {{question.dateCreated}}</div>
-<!--        <div class="author-name">Posted on: {{question.userName}}</div>-->
+        <div class="author-name">Posted by: {{question.userName}}</div>
+        <div class="top-answer"><br>{{question.topAnswerUser}}: {{question.topAnswerContent}}</div>
       </div>
       <br>
     </div>

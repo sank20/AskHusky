@@ -1,6 +1,6 @@
 export class Answer {
   public id: string;
-  constructor(public userId: string, public answer: string, public upvotes: number, public downvotes: number, public isActive: boolean) {}
+  constructor(public userName: string, public answer: string, public upvotes: number, public downvotes: number, public isActive: boolean) {}
 }
 
 /*
