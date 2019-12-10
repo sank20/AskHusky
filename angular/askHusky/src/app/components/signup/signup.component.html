@@ -1,18 +1,39 @@
-<h1>Signup</h1>
+
 <form (ngSubmit)="signupUser()" id="regForm">
-  <aw-wizard>
+  <aw-wizard navBarLocation = "">
     <aw-wizard-step stepTitle="Title of step 1">
-    <label for="username">Username: </label><input type = "text" name="username" id="username" [(ngModel)]="user.userName"><br><br>
+      <label for="firstname">First name: </label><input type = "text" name="firstname" id="firstname" [(ngModel)]="user.firstName"><br><br>
+      <label for="lastname">Last name: </label><input type = "text" name="lastname" id="lastname" [(ngModel)]="user.lastName"><br><br>
+      <label for="phoneno">Phone: </label><input type = "text" name="phoneno" id="phoneno" [(ngModel)]="user.phoneNo"><br><br>
       <button type="button" awNextStep>Next Step</button>
-      <button type="button" [awGoToStep]="{stepIndex: 2}">Go directly to third Step</button>
     </aw-wizard-step>
-    <aw-wizard-step stepTitle="Title of step 2" awOptionalStep>
+
+    <aw-wizard-step stepTitle="Title of step 2">
+      <label for="collegeName">College Name: </label><input type = "text" name="collegeName" id="collegeName" [(ngModel)]="user.collegeName"><br><br>
+      <label for="degree">Degree: </label><input type = "text" name="degree" id = "degree" [(ngModel)]="user.degree"><br><br>
+      <label for="course">Course: </label><input type = "text" name="course" id = "course" [(ngModel)]="user.course"><br><br>
+      <label for="graduationYear">Graduation Year: </label><input type = "date" name="course" id = "graduationYear" [(ngModel)]="user.graduationYear"><br><br>
+      <button type="button" awPreviousStep>Go to previous step</button>
+      <button type="button" awNextStep>Go to next step</button>
+    </aw-wizard-step>
+
+    <aw-wizard-step stepTitle="Title of step 2">
+    <label for="email">Email ID: </label><input type = "text" name="email" id="email" [(ngModel)]="user.email"><br><br>
+    <label for="username">Username: </label><input type = "text" name="username" id="username" [(ngModel)]="user.userName"><br><br>
     <label for="password">Password: </label><input type = "password" name="password" id = "password" [(ngModel)]="user.password"><br><br>
       <button type="button" awPreviousStep>Go to previous step</button>
       <button type="button" awNextStep>Go to next step</button>
     </aw-wizard-step>
     <aw-wizard-step stepTitle="Title of step 3">
-    <label for="email">Email ID: </label><input type = "email" name="email" id = "email" [(ngModel)]="user.email"><br><br>
+      <ng-multiselect-dropdown
+        name="dropdown"
+        [placeholder]="'custom placeholder'"
+        [data]="dropdownList"
+        [(ngModel)]="selectedItems"
+        [settings]="dropdownSettings"
+
+      >
+      </ng-multiselect-dropdown>
       <button type="button" awPreviousStep>Previous Step</button>
       <button type = "submit">SIGNUP</button>
     </aw-wizard-step>
