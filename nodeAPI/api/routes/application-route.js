@@ -17,6 +17,8 @@ module.exports = function (expressApp) {
         .post(userController.signup);
     expressApp.route('/login')
         .post(userController.login);
+    expressApp.route('/user/changePassword')
+        .post(userController.changePassword);
 
 
     //-- Question
