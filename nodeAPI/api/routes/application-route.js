@@ -67,26 +67,7 @@ module.exports = function (expressApp) {
     //const eventController = require('../controller/event-controller');
     //=================================================================================================================================
     const eventRequestController = require('../controller/event-request-controller');
-    /**
-     * Routes '/events/' endpoints to get?p='<field>'&val='<Value>' OR Create a new event
-     *
-     * @param expressApp
-     */
-    // expressApp.route('/events')
-    //     .get(eventController.list)
-    //     .post(eventController.post); //get all events, create a new event
-
-    /**
-     * Routes '/events/:eventID' endpoints to get, Update, Delete an event
-     *
-     * @param 'events/:eventID'
-     */
-    // expressApp.route('/events/:eventID')
-    //     .get(eventController.get)
-    //     .put(eventController.put)
-    //     .delete(eventController.delete);
-
-    /**
+     /**
      * Routes '/event-request' endpoints to Create a new event request towards attendee
      *
      * @param expressApp
@@ -111,9 +92,9 @@ module.exports = function (expressApp) {
      * @param expressApp
      */
     expressApp.route('/event-requests/organizer/:organizerID')
-        .get(eventRequestController.orgGet)
-        .put(eventRequestController.orgPut)
-        .delete(eventRequestController.orgDelete);
+        .get(eventRequestController.orgGet);
+        // .put(eventRequestController.orgPut)
+        // .delete(eventRequestController.orgDelete);
 
 
     /**
@@ -122,25 +103,28 @@ module.exports = function (expressApp) {
      * @param expressApp
      */
     expressApp.route('/event-requests/attendee/:attendeeID')
-        .get(eventRequestController.attGet)
-        .put(eventRequestController.attPut)
-        .delete(eventRequestController.attDelete);
+        .get(eventRequestController.attGet);
+        // .put(eventRequestController.attPut)
+        // .delete(eventRequestController.attDelete);
 
 
 
 
 
 
-    const icsController = require('../controller/ics-generator');
-    /**
-     * Routes '/events/' endpoints to get?p='<field>'&val='<Value>' OR Create a new event
-     *
-     * @param expressApp
-     */
-    expressApp.route('/ics-generator')
-        .get(icsController.list)
-        .post(eventController.post);
+//     const icsController = require('../controller/ics-generator');
+//     /**
+//      * Routes '/events/' endpoints to get?p='<field>'&val='<Value>' OR Create a new event
+//      *
+//      * @param expressApp
+//      */
+//     expressApp.route('/ics-generator')
+//         .get(icsController.list)
+//         .post(eventController.post);
+//
 
+
+    //------------------------------------------------------------
 };
 
 
