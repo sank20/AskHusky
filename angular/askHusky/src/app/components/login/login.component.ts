@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../classes/user';
 import {LoginSignupService} from '../../services/login-signup.service';
 import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   private user: User;
-  constructor(private loginSignupService: LoginSignupService, private router: Router) { }
+  constructor(private loginSignupService: LoginSignupService, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     this.user = new User();
@@ -20,10 +21,19 @@ export class LoginComponent implements OnInit {
 
   loginUser() {
     this.loginSignupService.loginUser(this.user).subscribe(
-      data => console.log(data),
-      error => console.log('ERROR= ' + JSON.stringify(error))
+      data => {
+        if (data['statusCode'] === '412') {
+          this.userService.setterToken(data['token']);
+          this.userService.setterUser(data['data']);
+          this.router.navigate(['/dashboard']);
+        }
+      },
+      error => {
+        console.log(error);
+        alert("Invalid Login ID/ Password");
+      }
     );
-    this.router.navigate(['/dashboard']);
+
   }
 
 }

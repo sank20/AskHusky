@@ -9,20 +9,26 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginSignupService} from './services/login-signup.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { CalanderEventComponent } from './components/calander-event/calander-event.component';
 import { EventRequestComponent } from './components/event-request/event-request.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { QuestionsListComponent } from './components/questions-list/questions-list.component';
+import {HttpInterceptor} from '@angular/common/http';
+import {TokenInterceptorService} from './services/token-interceptor.service';
+import { EventViewRequestsComponent } from './components/event-view-requests/event-view-requests.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+<<<<<<< HEAD
 import {TagInputModule} from "ngx-chips";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
+=======
+import {JwPaginationComponent} from 'jw-angular-pagination';
+>>>>>>> 8396a471058d00326f410005a8fd3e0af5ba433c
 
 @NgModule({
   declarations: [
@@ -33,10 +39,12 @@ import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
     HomepageComponent,
     CreateQuestionComponent,
     ProfileComponent,
-    CalanderEventComponent,
     EventRequestComponent,
+    QuestionsListComponent,
+    EventViewRequestsComponent,
     NavbarComponent,
-    QuestionsListComponent
+    QuestionsListComponent,
+    JwPaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,11 @@ import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
     BrowserAnimationsModule,
     CKEditorModule
   ],
-  providers: [LoginSignupService],
+  providers: [LoginSignupService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

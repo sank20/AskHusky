@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../classes/user';
 import {LoginSignupService} from '../../services/login-signup.service';
 import { QuestionService } from './../../services/question.service';
-// import { userServices } from '../../services/'
+import { UserService } from '../../services/user.service';
 import {Router} from '@angular/router';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {HttpHeaders} from '@angular/common/http';
@@ -21,10 +21,10 @@ export class CreateQuestionComponent implements OnInit {
   private baseUri = 'http://localhost:3000';
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private loginSignupService: LoginSignupService,private questionService : QuestionService, private router: Router) { }
+  constructor(private userService: UserService,private questionService : QuestionService, private router: Router) { }
 
   ngOnInit() {
-    this.user = userServices.getter();
+    this.user = this.userService.getterUser();
     console.log('Question creation initialised');
     this.questionService.fetchTags().subscribe(tagList => this.tags = tagList);
   }

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <ngb-tabset>
+        <ngb-tab>
+          <ng-template ngbTabTitle><b>My Requests</b></ng-template>
+          <ng-template ngbTabContent>
+
+            <br><br>
+
+            <div *ngFor="let eventRequest of organizerList" class="card text-center">
+              <div class="card-header">
+                {{eventRequest.description}}
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+              <div class="card-footer text-muted">
+                2 days ago
+              </div>
+            </div>
+
+
+          </ng-template>
+
+          <ng-template ngbTabTitle><b>My Invites</b></ng-template>
+          <ng-template ngbTabContent>
+
+
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
+</div>
+
+
