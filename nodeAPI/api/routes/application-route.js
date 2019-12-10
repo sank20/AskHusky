@@ -38,9 +38,9 @@ module.exports = function (expressApp) {
         .delete(questionController.delete);
 
     // -- Answer
-    //TODO uncomment below for issue #11
-    // expressApp.route('/questions/:questionId/answers')
-    //     .put(questionController.putAnswer);
+
+    expressApp.route('/questions/:questionId/answers')
+        .put(questionController.putAnswer);
     // -- Tags
 
     const tagController = require('../controller/tag-controller');
