@@ -3,7 +3,7 @@
  */
 
 'use strict';
-
+const checkAuth = require('../middleware/check-auth');
 /**
  * exports the initialization of the api to handle and route the incoming requests
  *
@@ -18,7 +18,7 @@ module.exports = function (expressApp) {
     expressApp.route('/login')
         .post(userController.login);
     expressApp.route('/user/changePassword')
-        .post(userController.changePassword);
+        .post(checkAuth, userController.changePassword);
 
 
     //-- Question
