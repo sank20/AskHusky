@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 
 
@@ -7,12 +8,11 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   providedIn: 'root'
 })
 export class EventServiceService {
-  private baseUri = 'http://localhost:3000';
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private http: HttpClient) { }
 
-createRequest(form : object){
-    return this.http.post(this.baseUri + '/event-request', form, {headers: this.headers});
+createRequest(form: object) {
+    return this.http.post(environment.apiHostUrl + '/event-request', form, {headers: this.headers});
   }
 
 }
