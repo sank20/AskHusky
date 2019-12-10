@@ -1,5 +1,5 @@
 'use strict';
-const eventModel = require('./../model/event');
+const eventModel = require('./../model/event-request');
 /**
  * require Mongoose object.
  */
@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 /**
  * defining the database/collection for Mongoose object.
  */
-let eventMongoose = mongoose.model('events');
+let eventMongoose = mongoose.model('eventRequestDB');
 
 
 /**
@@ -45,7 +45,7 @@ exports.get = function (eventID) {
  * @param {string} eventID {Id of the event object}
  */
 exports.orgGet = function (organizerID) {
-    return eventMongoose.find({organizer : eventID}).exec();
+    return eventMongoose.find({organizer : organizerID}).exec();
 };
 
 /**
@@ -54,7 +54,7 @@ exports.orgGet = function (organizerID) {
  * @param {string} eventID {Id of the event object}
  */
 exports.attGet = function (attendeeID) {
-    return eventMongoose.find({ attendee: { $all: [ attendeeID ] } }).exec();
+    return eventMongoose.find({ attendees: attendeeID }).exec();
 };
 
 /**

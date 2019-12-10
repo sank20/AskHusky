@@ -1,7 +1,7 @@
 
 
 let eventService = require('./../services/event-service');
-let eventObj = require('./../model/event');
+let eventObj = require('./../model/event-request');
 /**
  * handleErrorFunction a function to handle the http errors when called
  *

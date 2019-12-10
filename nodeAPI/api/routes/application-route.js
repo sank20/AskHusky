@@ -91,7 +91,7 @@ module.exports = function (expressApp) {
      *
      * @param expressApp
      */
-    expressApp.route('/event-requests/organizer/:organizerID')
+    expressApp.route('/events/requests/organizers/:organizerID')
         .get(eventRequestController.orgGet);
         // .put(eventRequestController.orgPut)
         // .delete(eventRequestController.orgDelete);
@@ -102,7 +102,7 @@ module.exports = function (expressApp) {
      *
      * @param expressApp
      */
-    expressApp.route('/event-requests/attendee/:attendeeID')
+    expressApp.route('/events/requests/attendees/:attendeeID')
         .get(eventRequestController.attGet);
         // .put(eventRequestController.attPut)
         // .delete(eventRequestController.attDelete);
