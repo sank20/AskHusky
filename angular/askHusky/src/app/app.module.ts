@@ -34,7 +34,7 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
     ProfileComponent,
     EventRequestComponent,
     QuestionsListComponent,
-    EventViewRequestsComponent
+    EventViewRequestsComponent,
     NavbarComponent,
     QuestionsListComponent,
     JwPaginationComponent
