@@ -1,18 +1,57 @@
-<form #eventForm="ngForm" (ngSubmit)="submitEvent(eventForm.form);">
+<div class="container">
+  <div class="card" >
+    <div class="card-body">
+      <form #eventForm="ngForm" (ngSubmit)="submitRequestEvent(eventForm.form);">
+        <!--      Meeting Title -->
+        <div class="form-group">
+          <label for="request-title">Title :</label>
+          <input type="text" placeholder="Title" class="form-control" name="request-title" id="request-title" ngModel #titleField="ngModel">
+        </div>
+        <!--      Meeting Description -->
+        <div class="form-group">
+          <label for="request-description">Description :</label>
+          <input type="text" placeholder="Description" class="form-control" name="request-description" id="request-description" ngModel #descriptionField="ngModel">
+        </div>
+        <!--      Meeting Location -->
 
-  <input type="text"
-         class="form-control"
-         name="request-title"
-         ngModel
-         #titleField="ngModel"
-         required
-         minlength="5">
-  <div class="alert alert-danger"
-       *ngIf="titleField.errors.minlength">
-    The company name should be at least {{ titleField.errors.minlength.requiredLength }} characters long
+        <div class="form-group">
+          <label for="request-description">Location :</label>
+          <input type="text" placeholder="location" class="form-control" name="request-location" id="request-location" ngModel #locationField="ngModel">
+        </div>
+        <!--      Meeting Date -->
+
+        <div class="form-group">
+          <div class="input-group">
+            <label for="request-date">Date :</label>
+            <input class="form-control" placeholder="yyyy-mm-dd" ngModel
+                   name="request-date" id="request-date" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">Choose</button>
+            </div>
+          </div>
+        </div>
+
+
+        <!--      Meeting Time -->
+
+        <div class="form-group">
+          <label for="request-time">Time :</label>
+          <ngb-timepicker name="request-time" id="request-time" ngModel name="request-time"></ngb-timepicker>
+        </div>
+
+        <!--      Meeting Hours -->
+        <div class="form-group">
+          <label for="request-hours">Number of Hours :</label>
+          <select class="custom-select mr-sm-2" id="selectForm">
+            <option value="1" selected>1 Hour</option>
+            <option *ngFor="let key of  [2,3,4,5,6,7,8]" value="{{key}}">{{key}} Hours</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary" [disabled]="!eventForm.valid">Submit</button>
+        <button class="btn btn-primary" (click)="eventForm.reset()">Cancel</button>
+      </form>
+
+    </div>
   </div>
-
-
-  <button class="btn btn-primary" [disabled]="!eventForm.valid">Submit</button>
-  <button class="btn btn-primary" (click)="eventForm.reset()">Cancel</button>
-</form>
+</div>

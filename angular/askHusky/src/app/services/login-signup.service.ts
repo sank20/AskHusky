@@ -21,4 +21,9 @@ export class LoginSignupService {
   loginUser(user: User) {
       return this.http.post(this.baseUri + '/login', user, {headers: this.headers});
   }
+
+
+  getLoggedinUser(){
+    return this.user;
+  }
 }
