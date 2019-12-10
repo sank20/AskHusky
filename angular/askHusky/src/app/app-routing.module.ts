@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path : 'calender-event', component : CalanderEventComponent},
-  {path : 'request-event', component : EventRequestComponent}
+  {path : 'request-events', component : EventRequestComponent}
 ];
 
 @NgModule({

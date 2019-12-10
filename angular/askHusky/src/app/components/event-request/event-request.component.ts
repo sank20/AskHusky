@@ -20,7 +20,7 @@ export class EventRequestComponent implements OnInit {
   }
 
   submitRequestEvent(form){
-    form = { ...form.value, "request-organizer": "Rsg","request-attendee":null};
+    form = { ...form.value, "organizer": "Rsg","attendees":null,"requestStatus":null,"questionID":null};
     this.eventServiceService.createRequest(form);
     console.log(form);
     form.reset();
