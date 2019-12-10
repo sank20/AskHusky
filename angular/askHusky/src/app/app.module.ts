@@ -16,6 +16,7 @@ import { CalanderEventComponent } from './components/calander-event/calander-eve
 import { EventRequestComponent } from './components/event-request/event-request.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { QuestionsListComponent } from './components/questions-list/questions-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CreateQuestionComponent,
     ProfileComponent,
     CalanderEventComponent,
-    EventRequestComponent
+    EventRequestComponent,
+    QuestionsListComponent
   ],
   imports: [
     BrowserModule,
