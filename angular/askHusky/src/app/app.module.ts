@@ -22,13 +22,10 @@ import {HttpInterceptor} from '@angular/common/http';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { EventViewRequestsComponent } from './components/event-view-requests/event-view-requests.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-<<<<<<< HEAD
 import {TagInputModule} from "ngx-chips";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
-=======
 import {JwPaginationComponent} from 'jw-angular-pagination';
->>>>>>> 8396a471058d00326f410005a8fd3e0af5ba433c
 
 @NgModule({
   declarations: [
