@@ -13,7 +13,7 @@ import {User} from '../../classes/user';
 
 export class EventRequestComponent implements OnInit {
   private user: User;
-  constructor(private eventServiceService: EventServiceService, private loginSignupService: LoginSignupService, private router: Router) { }
+  constructor(private eventServiceService: EventServiceService, private loginSignupService : LoginSignupService, private router: Router) { }
 
   ngOnInit() {
     this.user = this.loginSignupService.getLoggedInUser();

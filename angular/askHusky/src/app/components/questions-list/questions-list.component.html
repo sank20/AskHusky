@@ -1,6 +1,6 @@
 <div class="main-container">
   <div class="list-container">
-    <div *ngFor="let question of questions">
+    <div *ngFor="let question of pageOfItems">
       <div class="question-item">
         <div class="question-title">{{question.title}}</div>
         <div class="question-description">{{question.description}}</div>
@@ -11,5 +11,8 @@
       </div>
       <br>
     </div>
+  </div>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination [items]="questions" [pageSize]="6" (changePage)="onChangePage($event)"></jw-pagination>
   </div>
 </div>

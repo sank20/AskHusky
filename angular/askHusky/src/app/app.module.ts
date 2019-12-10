@@ -20,7 +20,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { QuestionsListComponent } from './components/questions-list/questions-list.component';
 import { EventViewRequestsComponent } from './components/event-view-requests/event-view-requests.component';
-
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { JwPaginationComponent } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,9 @@ import { EventViewRequestsComponent } from './components/event-view-requests/eve
     EventRequestComponent,
     QuestionsListComponent,
     EventViewRequestsComponent
+    NavbarComponent,
+    QuestionsListComponent,
+    JwPaginationComponent
   ],
   imports: [
     BrowserModule,

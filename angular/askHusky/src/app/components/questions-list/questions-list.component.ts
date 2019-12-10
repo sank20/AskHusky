@@ -12,6 +12,9 @@ export class QuestionsListComponent implements OnInit {
   questions: Array<Question>;
   selectedQuestion: Question;
   topAnswer: Answer;
+
+  // items = [];
+  pageOfItems: Array<Question>;
   constructor(private questionService: QuestionService) { }
 
   ngOnInit() {
@@ -35,7 +38,7 @@ export class QuestionsListComponent implements OnInit {
           topAnswer = answer;
         }
       }
-      console.log("top answer:");
+      console.log('top answer:');
       console.log(topAnswer);
       if (topAnswer != null) {
         this.questions[i].topAnswerId = topAnswer.id;
@@ -48,5 +51,9 @@ export class QuestionsListComponent implements OnInit {
         this.questions[i].topAnswerContent = this.questions[i].answers[0].answer;
       }
     }
+  }
+
+  onChangePage(pageOfItems: Array<Question>) {
+    this.pageOfItems = pageOfItems;
   }
 }
