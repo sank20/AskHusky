@@ -21,4 +21,8 @@ export class LoginSignupService {
   loginUser(user: User) {
       return this.http.post(this.baseUri + '/login', user, {headers: this.headers});
   }
+
+  fetchTags(){
+    return this.http.get(this.baseUri + '/tags', {headers: this.headers});
+  }
 }
