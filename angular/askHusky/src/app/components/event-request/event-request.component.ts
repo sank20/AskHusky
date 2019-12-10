@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {EventServiceService} from "../../services/event-service.service";
-import {LoginSignupService} from "../../services/login-signup.service";
-import {Router} from "@angular/router";
-import {User} from "../../classes/user";
+import {EventServiceService} from '../../services/event-service.service';
+import {LoginSignupService} from '../../services/login-signup.service';
+import {Router} from '@angular/router';
+import {User} from '../../classes/user';
 
 @Component({
   selector: 'app-event-request',
@@ -13,10 +13,10 @@ import {User} from "../../classes/user";
 
 export class EventRequestComponent implements OnInit {
   private user: User;
-  constructor(private eventServiceService: EventServiceService,private loginSignupService : LoginSignupService, private router: Router) { }
+  constructor(private eventServiceService: EventServiceService, private loginSignupService : LoginSignupService, private router: Router) { }
 
   ngOnInit() {
-    this.user = this.loginSignupService.getLoggedinUser();
+    this.user = this.loginSignupService.getLoggedInUser();
   }
 
   submitRequestEvent(form){

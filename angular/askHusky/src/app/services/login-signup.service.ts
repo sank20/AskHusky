@@ -26,7 +26,8 @@ export class LoginSignupService {
   changePassword(changePasswordObj: object) {
     return this.http.put(this.baseUri + '/changePassword', changePasswordObj, {headers: this.headers});
   }
-getLoggedInUser() {
+
+  getLoggedInUser() {
     return this.user;
   }
 }

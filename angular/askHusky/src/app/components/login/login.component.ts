@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this.loginSignupService.loginUser(this.user).subscribe(
       data => console.log(data),
-      error => console.log(error)
+      error => console.log('ERROR= ' + JSON.stringify(error))
     );
     this.router.navigate(['/dashboard']);
   }
