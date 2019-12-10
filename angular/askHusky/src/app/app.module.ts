@@ -9,19 +9,20 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FormsModule} from '@angular/forms';
 import {LoginSignupService} from './services/login-signup.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { EventRequestComponent } from './components/event-request/event-request.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './components/homepage/homepage.component';
-// @ts-ignore
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { QuestionsListComponent } from './components/questions-list/questions-list.component';
+import {HttpInterceptor} from '@angular/common/http';
+import {TokenInterceptorService} from './services/token-interceptor.service';
 import { EventViewRequestsComponent } from './components/event-view-requests/event-view-requests.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { JwPaginationComponent } from 'jw-angular-pagination';
+import {JwPaginationComponent} from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,11 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
     NgbModule,
     NgMultiSelectDropDownModule.forRoot()
   ],
-  providers: [LoginSignupService],
+  providers: [LoginSignupService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

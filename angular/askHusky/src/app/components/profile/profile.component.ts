@@ -17,7 +17,7 @@ private user: User;
   // @Input(){}
 
 ngOnInit(){
-  this.user = this.loginSignupService.getLoggedInUser();
+ // this.user = this.loginSignupService.getLoggedInUser();
   this.changePasswordObj.userName = this.user.userName;
   console.log('profile fetched');
     // this.getProfile();

@@ -3,6 +3,7 @@ import {HttpHeaders, HttpClient} from '@angular/common/http';
 import {User} from '../classes/user';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,8 +32,4 @@ export class LoginSignupService {
     return this.http.put(this.baseUri + '/changePassword', changePasswordObj, {headers: this.headers});
   }
 
-  getLoggedInUser() {
-    return this.user;
-
-  }
 }
