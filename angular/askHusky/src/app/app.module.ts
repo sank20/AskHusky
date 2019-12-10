@@ -20,6 +20,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { QuestionsListComponent } from './components/questions-list/questions-list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { JwPaginationComponent } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     CalanderEventComponent,
     EventRequestComponent,
     NavbarComponent,
-    QuestionsListComponent
+    QuestionsListComponent,
+    JwPaginationComponent
   ],
   imports: [
     BrowserModule,
