@@ -9,13 +9,17 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FormsModule} from '@angular/forms';
 import {LoginSignupService} from './services/login-signup.service';
 import {HttpClientModule} from '@angular/common/http';
+import { CreateQuestionComponent } from './components/create-question/create-question.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreateQuestionComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
