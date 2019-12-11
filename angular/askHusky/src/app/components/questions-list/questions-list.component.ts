@@ -63,6 +63,7 @@ export class QuestionsListComponent implements OnInit {
   onQuestionItemClick(question: Question) {
     this.selectedQuestion = question;
     // this.router.
-    this.router.navigate(['/question-details']);
+    this.questionService.storeSelectedQuestion(this.selectedQuestion);
+    this.router.navigate(['dashboard/question-details']);
   }
 }

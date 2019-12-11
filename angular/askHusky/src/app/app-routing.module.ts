@@ -25,7 +25,7 @@ const routes: Routes = [
       {path: 'request-view', component: EventViewRequestsComponent},
       {path : 'question-details', component : QuestionDetailComponent},
       {path : 'question-list', component : QuestionsListComponent},
-      // {path : 'dashboard', redirectTo: 'question-list'}
+      {path : '', redirectTo: 'question-list', pathMatch: 'full'}
     ]
   }];
 @NgModule({
