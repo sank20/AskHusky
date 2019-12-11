@@ -28,7 +28,7 @@ export class CreateQuestionComponent implements OnInit {
   private baseUri = 'http://localhost:3000';
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor( private userService: UserService, private questionService : QuestionService, private router: Router) { }
+  constructor( private userService: UserService, private questionService: QuestionService, private router: Router) { }
 
   ngOnInit() {
     this.user = this.userService.getterUser();

@@ -47,4 +47,10 @@ export class QuestionService {
   getMeetingUserName() {
     return this.meetingUserQuestion;
   }
+
+
+  // insertAnswer(id: string, answer: { answer: string; upvotes: number; userName: any | null | string; downvotes: number; isActive: boolean }) {
+  insertAnswer(id: string, answer: Answer) {
+    return this.http.post(this.baseUri + '/questions/' + id + '/answers', answer, {headers: this.headers});
+  }
 }

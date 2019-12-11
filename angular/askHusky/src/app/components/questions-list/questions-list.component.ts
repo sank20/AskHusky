@@ -66,10 +66,12 @@ export class QuestionsListComponent implements OnInit {
   }
 
   onQuestionItemClick(question: Question) {
+    console.log("clicked!");
+    console.log(question);
     this.selectedQuestion = question;
     // this.router.
     this.questionService.storeSelectedQuestion(this.selectedQuestion);
-    this.router.navigate(['dashboard/question-details']);
+    this.router.navigate(['dashboard/questions/details']);
   }
 
   setMeeting(meetingUserQuestion: Question) {
