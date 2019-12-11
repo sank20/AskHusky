@@ -27,7 +27,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {JwPaginationComponent} from 'jw-angular-pagination';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +55,8 @@ import { QuestionDetailComponent } from './components/question-detail/question-d
     NgMultiSelectDropDownModule.forRoot(),
     TagInputModule,
     BrowserAnimationsModule,
-    CKEditorModule
+    CKEditorModule,
+    FontAwesomeModule
   ],
   providers: [LoginSignupService, {
     provide: HTTP_INTERCEPTORS,
