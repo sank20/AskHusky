@@ -14,7 +14,9 @@ const Schema = mongoose.Schema;
  */
 let tagSchema = new Schema({
     tagName: {
-        type: String
+        type: String,
+        required: "Interested tags are required",
+        unique: "Tags should be unique"
     },
     dateCreated: {
         type: Date,
@@ -31,6 +33,10 @@ let tagSchema = new Schema({
     tagCategory: {
         type: String,
         default: 'general'
+    },
+    points:{
+        type: Number,
+        default: 0
     }
 }, {
         versionKey: false
@@ -44,4 +50,4 @@ tagSchema.set('toJSON', {
     virtuals: true
 });
 
-module.exports = mongoose.model('TagModel', tagSchema);
+module.exports = mongoose.model('tags', tagSchema);

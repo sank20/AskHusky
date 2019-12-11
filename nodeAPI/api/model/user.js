@@ -3,6 +3,45 @@ const mongoose =require('mongoose');
 const Schema = mongoose.Schema;
 
 let userSchema =new Schema({
+
+    firstName:{
+        type: String,
+        required: "First Name cannot be empty",
+        trim: true
+    },
+
+    lastName:{
+        type: String,
+        required: "Last Name cannot be empty",
+        trim: true
+    },
+
+    phoneNo:{
+        type: String,
+        required: "Last Name cannot be empty",
+        match: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+    },
+
+    collegeName:{
+        type: String
+    },
+
+    degree:{
+        type: String
+    },
+
+    course:{
+        type: String
+    },
+
+    graduationYear:{
+        type: Date
+    },
+
+    interestedTags:[{
+        type: String
+    }],
+
     userName: {
         type: String,
         required: "User Name cannot be empty",
@@ -17,9 +56,8 @@ let userSchema =new Schema({
     },
 
     userStatus: {
-        type: String,
-        enum: ["Active", "Suspend", "Deactivate", "Purged"],
-        default: "Active"
+        type: Boolean,
+        default: true
     },
 
     email: {
@@ -47,10 +85,16 @@ let userSchema =new Schema({
 
     createdDate: {
         type: Date
+    },
+
+    points: {
+        type: Number,
+        default: 10
     }
+
 }, {
     versionKey: false
 });
 
 
-module.exports = mongoose.model('UserModel', userSchema);
+module.exports = mongoose.model('users', userSchema);
