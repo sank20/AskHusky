@@ -4,7 +4,7 @@
 
       <!---->
       <br>
-      <div class="container" *ngFor="let eventRequest of organizerList" >
+      <div class="container col-md-7" *ngFor="let eventRequest of organizerList" >
         <br>
 
 
@@ -47,7 +47,7 @@
     <ng-template ngbTabTitle>My Invites</ng-template>
     <ng-template ngbTabContent>
       <!--        -->
-      <div *ngFor="let eventRequest of attendeeList" class="container col-md-4">
+      <div *ngFor="let eventRequest of attendeeList" class="container col-md-7">
         <br>
         <div class="card text-center">
           <div class="card-header">
@@ -56,7 +56,7 @@
           <div class="card-body">
             <h5 class="card-title">{{eventRequest.description}}</h5>
             <p class="card-text"> Location : {{eventRequest.location}}</p>
-            <p class="card-text"> Attendee : {{eventRequest.attendees}}</p>
+            <p class="card-text"> Requestor : {{eventRequest.organizer}}</p>
             <div *ngIf="isInitiated(eventRequest.requestStatus); then thenBlock; else elseBlock;"></div>
             <ng-template #thenBlock>
               <button type="button" class="btn btn-outline-success" (click)="acceptRequest(eventRequest)">Accept</button>

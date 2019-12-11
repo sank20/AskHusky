@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Question} from '../classes/question.model';
 import {environment} from '../../environments/environment';
-import {Answer} from "../classes/answer.model";
+import {Answer} from '../classes/answer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,8 @@ export class QuestionService {
   private baseUri = 'http://localhost:3000';
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
   private selectedQuestion: Question;
+  private meetingUserQuestion: Question;
+
   constructor(private http: HttpClient) { }
   public list(): Observable<Array<Question>> {
     const questions$ = this.http
@@ -36,5 +38,13 @@ export class QuestionService {
   }
   getSelectedQuestion() {
     return this.selectedQuestion;
+  }
+
+  setMeetingUserName( meetingUserQuestion: Question) {
+    this.meetingUserQuestion = meetingUserQuestion;
+  }
+
+  getMeetingUserName() {
+    return this.meetingUserQuestion;
   }
 }

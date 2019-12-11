@@ -3,6 +3,9 @@ import {Question} from '../../classes/question.model';
 import {QuestionService} from '../../services/question.service';
 import {Answer} from '../../classes/answer.model';
 import {Router, RouterModule} from '@angular/router';
+import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons';
+import {User} from '../../classes/user';
+
 
 @Component({
   selector: 'app-questions-list',
@@ -13,6 +16,7 @@ export class QuestionsListComponent implements OnInit {
   questions: Array<Question>;
   selectedQuestion: Question;
   topAnswer: Answer;
+  faCalendarAlt = faCalendarAlt;
 
   // items = [];
   pageOfItems: Array<Question>;
@@ -24,6 +28,7 @@ export class QuestionsListComponent implements OnInit {
       console.log(questions);
       this.getTopAnswer();
     });
+
   }
 
   getTopAnswer() {
@@ -65,5 +70,10 @@ export class QuestionsListComponent implements OnInit {
     // this.router.
     this.questionService.storeSelectedQuestion(this.selectedQuestion);
     this.router.navigate(['dashboard/question-details']);
+  }
+
+  setMeeting(meetingUserQuestion: Question) {
+    this.questionService.setMeetingUserName(meetingUserQuestion);
+    this.router.navigate(['dashboard/requests/add']);
   }
 }

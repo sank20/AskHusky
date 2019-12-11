@@ -49,6 +49,7 @@ export class CreateQuestionComponent implements OnInit {
     this.questionData.tags = t;
     this.questionData.userName = this.user.userName;
     this.questionService.createQuestion(this.questionData).subscribe((d) => console.log(d));
+    this.router.navigate(['/dashboard']);
   }
 
 }
