@@ -11,7 +11,7 @@ export class User {
   public interestedTags: Array<Tag>;
   public userName: string;
   public password: string;
-  public userStatus?: string;
+  public userStatus?: boolean;
   public email: string;
 
   constructor() {

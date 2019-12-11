@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginSignupService} from '../../services/login-signup.service';
-import {error} from "util";
+// import {error} from "util";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,16 +10,9 @@ import {error} from "util";
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private loginSignupService : LoginSignupService) { }
+  constructor(private router: Router, private loginSignupService: LoginSignupService) { }
 
   ngOnInit() {
-    this.nextMethod();
+    // this.router.navigate('dashboard/');
   }
-  nextMethod(){
-    this.loginSignupService.changePassword({}).subscribe(
-      data => console.log(data),
-      error => console.log(error)
-
-    );
-  };
 }

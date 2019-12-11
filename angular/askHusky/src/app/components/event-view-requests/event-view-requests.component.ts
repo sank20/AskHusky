@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {EventServiceService} from '../../services/event-service.service';
-import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
-import {EventRequest} from './../../classes/eventRequest';
+import {EventRequest} from '../../classes/eventRequest';
 import {User} from '../../classes/user';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-event-view-requests',
@@ -18,40 +18,30 @@ export class EventViewRequestsComponent implements OnInit {
   organizerList: Array<EventRequest>;
   attendeeList: Array<EventRequest>;
   ngOnInit() {
+
     this.user = this.userService.getterUser();
-    //
-    this.eventServiceService.listOrganizer(this.user.userName).subscribe(orgList => {
-      this.organizerList = orgList;
+    // @ts-ignore
+    this.eventServiceService.listOrganizer(user.userName).subscribe( orgList => {
+      this.user = this.userService.getterUser();
     });
-    //
     this.eventServiceService.listAttendee(this.user.userName).subscribe(attList => {
       this.attendeeList = attList;
     });
   }
 
 
-  public isInitiated(intitiated: string) {
-    // tslint:disable-next-line:triple-equals
-    if (intitiated == 'INITIATED') {
-      return true;
-    } else { return false; }
-  }
-  public isAccepted(intitiated: string) {
-    // tslint:disable-next-line:triple-equals
-    if (intitiated == 'ACCEPTED') {
-      return true;
-    } else { return false; }
+    public isInitiated(intitiated: string) {
+    if (intitiated === 'INITIATED') {return true; } else { return false; }
   }
 
 
-  acceptRequest(evtObj: EventRequest) {
+    public acceptRequest(evtObj: EventRequest) {
     this.eventServiceService.changeRequestReason(evtObj, 'ACCEPTED').subscribe((eventObj) => evtObj = eventObj);
     this.eventServiceService.listAttendee(this.user.userName).subscribe(attList => {
       this.attendeeList = attList;
     });
-
   }
-  rejectRequest(evtObj: EventRequest) {
+    public rejectRequest(evtObj: EventRequest) {
     this.eventServiceService.changeRequestReason(evtObj, 'REJECTED').subscribe((eventObj) => evtObj = eventObj);
     this.eventServiceService.listAttendee(this.user.userName).subscribe(attList => {
       this.attendeeList = attList;

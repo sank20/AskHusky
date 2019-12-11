@@ -1,10 +1,17 @@
-<h1>profile works!</h1>
-<form>
-  <label for="username">Username: </label><div type = "text" name="username" id="username" [ngModel]="user.userName"></div><br><br>
-  <label for="email">Email ID: </label><div type = "email" name="email" id = "email" [ngModel]="user.email"></div><br><br>
-  <label for="password">Old Password: </label><input type = "password" name="password"  id = "password" [(ngModel)]="changePasswordObj.oldPassword" ><br><br>
-  <label for="password">Password: </label><input type = "password" name="reTypePassword" id = "newPassword" [(ngModel)]="changePasswordObj.newPassword"><br><br>
-<!--  <label for="password">Re-Type Password: </label><input type = "password" name="password" id = "RePassword" (ngModel)="user.password"><br><br>-->
+<form class="was-validated">
+  <label for="username">Username: </label>
+  <input type="text" name="username" id="username" [ngModel]="user.userName">
+  <br><br>
+  <label for="email">Email ID: </label>
+  <input type="email" name="email" id="email" [ngModel]="user.email">
+  <br><br>
+  <label for="oldPassword">Old Password: </label>
+  <input type="password" name="password" id="oldPassword" [(ngModel)]="changePasswordObj.oldPassword">
+  <br><br>
+  <label for="newPassword">Password: </label>
+  <input type="password" name="reTypePassword" id="newPassword" [(ngModel)]="changePasswordObj.newPassword">
+  <br><br>
+  <!--  <label for="password">Re-Type Password: </label><input type = "password" name="password" id = "RePassword" (ngModel)="user.password"><br><br>-->
 
   <button (click)="changePassword()">Submit</button>
 </form>

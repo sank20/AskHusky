@@ -20,17 +20,21 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
+    console.log('in login');
     this.loginSignupService.loginUser(this.user).subscribe(
       data => {
         if (data['statusCode'] === '412') {
+          console.log(data);
           this.userService.setterToken(data['token']);
           this.userService.setterUser(data['data']);
           this.router.navigate(['/dashboard']);
+        } else {
+          alert('Authentication Failed');
         }
       },
       error => {
         console.log(error);
-        alert("Invalid Login ID/ Password");
+        alert('Invalid Login ID/ Password');
       }
     );
 
