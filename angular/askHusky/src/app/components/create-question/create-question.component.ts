@@ -35,8 +35,9 @@ export class CreateQuestionComponent implements OnInit {
     this.questionData.user = this.user;
     console.log('Question creation initialised');
 
-    this.questionService.fetchTags().subscribe(tagList => {this.tagsList = tagList;
-                                                           console.log(this.tagsList);
+    this.questionService.fetchTags().subscribe(tagList => {
+      this.tagsList = tagList;
+      console.log(this.tagsList);
     });
   }
 

@@ -27,7 +27,8 @@ const routes: Routes = [
       {path : 'questions/list', component : QuestionsListComponent},
       {path : '', redirectTo: 'questions/list', pathMatch: 'full'}
     ]
-  }];
+  },
+  {path : '**', component : HomepageComponent} ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

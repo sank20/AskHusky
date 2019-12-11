@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card" >
-    <div class="card-title">{{ user.userName}}</div>
+    <div class="card-title text-center"><br><h4>Meeting Request</h4><br></div>
     <div class="card-body">
       <form #eventForm="ngForm" (ngSubmit)="submitRequestEvent(eventForm.form);">
         <!--      Meeting Title -->
@@ -49,9 +49,8 @@
           </select>
         </div>
 
-        <button class="btn btn-primary" [disabled]="!eventForm.valid">Submit</button>
-        <button class="btn btn-primary" (click)="eventForm.reset();this._location.back();">Cancel</button>
-        <a routerLink="/request-view"> View Requests</a>
+        <button class="btn btn-primary mx-3" [disabled]="!eventForm.valid">Submit</button>
+        <button class="btn btn-primary mx-3" (click)="eventForm.reset();">Cancel</button>
       </form>
 
     </div>

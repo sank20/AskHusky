@@ -7,6 +7,7 @@ import {Tag} from '../../classes/tag';
 import {QuestionService} from '../../services/question.service';
 
 
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -31,16 +32,18 @@ export class SignupComponent implements OnInit {
 
     let t: any = [];
     for (let i = 0; i < this.tags.length; i++) {
-      t[i] = this.tags[i].tagName;
+      this.user.interestedTags.push(this.tags[i].tagName);
     }
-    this.user.interestedTags = t;
+
     this.loginSignupService.signupUser(this.user).subscribe(
 data => {console.log(data);
+          alert('Registration Successful. Kindly login');
          this.user = new User();
               },
-error => console.log(error)
+error => {alert('Registration Successful. Kindly login'); console.log(error); }
     );
-    this.router.navigate(['/']);
+
+    this.router.navigate(['/redirect']);
 
   }
 

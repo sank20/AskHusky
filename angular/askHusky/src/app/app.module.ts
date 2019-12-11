@@ -28,6 +28,8 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {JwPaginationComponent} from 'jw-angular-pagination';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SkillsBoardComponent } from './components/skills-board/skills-board.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NavbarComponent,
     QuestionsListComponent,
     JwPaginationComponent,
-    QuestionDetailComponent
+    QuestionDetailComponent,
+    SkillsBoardComponent
   ],
   imports: [
     BrowserModule,

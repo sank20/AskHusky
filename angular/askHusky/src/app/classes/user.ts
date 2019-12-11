@@ -1,5 +1,11 @@
+/**
+ * Tag object import
+ */
 import {Tag} from './tag';
 
+/**
+ * User POJO created
+ */
 export class User {
   public firstName: string;
   public lastName: string;
@@ -13,6 +19,7 @@ export class User {
   public password: string;
   public userStatus?: boolean;
   public email: string;
+  public points: string;
 
   constructor() {
     this.interestedTags = new Array<Tag>();

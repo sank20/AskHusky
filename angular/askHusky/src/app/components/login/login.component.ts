@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../classes/user';
 import {LoginSignupService} from '../../services/login-signup.service';
 import {Router} from '@angular/router';
@@ -12,7 +12,9 @@ import {UserService} from '../../services/user.service';
 })
 export class LoginComponent implements OnInit {
   private user: User;
-  constructor(private loginSignupService: LoginSignupService, private router: Router, private userService: UserService) { }
+
+  constructor(private loginSignupService: LoginSignupService, private router: Router, private userService: UserService) {
+  }
 
   ngOnInit() {
     this.user = new User();
