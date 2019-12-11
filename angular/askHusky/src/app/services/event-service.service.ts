@@ -17,7 +17,7 @@ export class EventServiceService {
   constructor(private http: HttpClient) {
   }
 
-  public createRequest(form: object) {
+  public createRequest(form: object): Observable<EventRequest> {
     return this.http.post<EventRequest>(environment.apiHostUrl + '/events/requests', form, {headers: this.headers});
   }
 
@@ -33,12 +33,17 @@ export class EventServiceService {
     return attendeesList;
   }
 
-  public update(id: string, eventObj: EventRequest): Observable<Array<EventRequest>> {
+  public update(eventObj: EventRequest): Observable<EventRequest> {
     // tslint:disable-next-line:max-line-length
     // @ts-ignore
     // tslint:disable-next-line:max-line-length
-    const updateObj$ = this.http.get<EventRequest[]>(environment.apiHostUrl + '/events/requests/organizers/' + id, eventObj, {headers: this.headers});
+    const updateObj$ = this.http.put<EventRequest>(environment.apiHostUrl + '/events/requests/' + eventObj.id, eventObj, {headers: this.headers});
     return updateObj$;
+  }
+
+  public changeRequestReason(eventObj: EventRequest, reqReason: string): Observable<EventRequest> {
+    eventObj.requestStatus = reqReason;
+    return this.update(eventObj);
   }
 
 
