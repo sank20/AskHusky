@@ -19,7 +19,7 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     children: [
-      {path: 'profile', component: ProfileComponent},
+      {path: 'changePassword', component: ProfileComponent},
       {path: 'request-events', component: EventRequestComponent},
       {path: 'create-question', component: CreateQuestionComponent},
       {path: 'request-view', component: EventViewRequestsComponent},

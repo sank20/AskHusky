@@ -6,5 +6,21 @@
 </div>
 <div>Answers:</div>
 <div *ngFor="let answer of selectedQuestion.answers">
-  <div></div>
+  <div (click)="upvote(answer)">
+    <fa-icon [icon] = "faArrowCircleUp"></fa-icon>
+  </div>
+  <span
+    class="answer-score">{{answer.upvotes-answer.downvotes}}
+  </span>
+ <div (click)="downvote(answer)">
+  <fa-icon
+    [icon] = "faArrowCircleDown">
+  </fa-icon>
+</div>
+
+  <div>{{answer.answer}}</div>
+  <div class=""footer>
+    By: <div>{{answer.userName}}</div>
+<!--    <div>{{answer.}}</div>-->
+  </div>
 </div>
