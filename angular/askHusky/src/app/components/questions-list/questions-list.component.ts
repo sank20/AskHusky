@@ -47,9 +47,11 @@ export class QuestionsListComponent implements OnInit {
         this.questions[i].topAnswerContent = topAnswer.answer;
         console.log(this.questions[i]);
       } else {
+        if(this.questions[i].answers.length > 0 ) {
         this.questions[i].topAnswerId = this.questions[i].answers[0].id;
         this.questions[i].topAnswerUser = this.questions[i].answers[0].userName;
         this.questions[i].topAnswerContent = this.questions[i].answers[0].answer;
+        }
       }
     }
   }

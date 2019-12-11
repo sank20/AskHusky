@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
           this.userService.setterToken(data['token']);
           this.userService.setterUser(data['data']);
           this.router.navigate(['/dashboard']);
-        }else{
+        } else {
           alert('Authentication Failed');
         }
       },
