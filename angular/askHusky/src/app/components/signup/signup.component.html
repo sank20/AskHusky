@@ -2,40 +2,113 @@
 <form (ngSubmit)="signupUser()" id="regForm">
   <aw-wizard navBarLocation = "">
     <aw-wizard-step stepTitle="Title of step 1">
-      <label for="firstname">First name: </label><input type = "text" name="firstname" id="firstname" [(ngModel)]="user.firstName"><br><br>
-      <label for="lastname">Last name: </label><input type = "text" name="lastname" id="lastname" [(ngModel)]="user.lastName"><br><br>
-      <label for="phoneno">Phone: </label><input type = "text" name="phoneno" id="phoneno" [(ngModel)]="user.phoneNo"><br><br>
-      <button type="button" awNextStep>Next Step</button>
+      <br><br>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">First Name:</span>
+        </div>
+        <input class="form-control" type = "text" name="firstname" id="firstname" [(ngModel)]="user.firstName">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Last Name:</span>
+        </div>
+        <input class="form-control" type = "text" name="lastname" id="lastname" [(ngModel)]="user.lastName">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Phone no:</span>
+        </div>
+        <input class="form-control" type = "text" name="phoneno" id="phoneno" [(ngModel)]="user.phoneNo">
+      </div>
+
+      <button class = "btn btn-outline-primary" type="button" awNextStep>Next Step</button>
     </aw-wizard-step>
 
     <aw-wizard-step stepTitle="Title of step 2">
-      <label for="collegeName">College Name: </label><input type = "text" name="collegeName" id="collegeName" [(ngModel)]="user.collegeName"><br><br>
-      <label for="degree">Degree: </label><input type = "text" name="degree" id = "degree" [(ngModel)]="user.degree"><br><br>
-      <label for="course">Course: </label><input type = "text" name="course" id = "course" [(ngModel)]="user.course"><br><br>
-      <label for="graduationYear">Graduation Year: </label><input type = "date" name="course" id = "graduationYear" [(ngModel)]="user.graduationYear"><br><br>
-      <button type="button" awPreviousStep>Go to previous step</button>
-      <button type="button" awNextStep>Go to next step</button>
+      <br><br>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">College Name: </span>
+        </div>
+        <input class="form-control"  type = "text" name="collegeName" id="collegeName" [(ngModel)]="user.collegeName">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Degree: </span>
+        </div>
+        <input class="form-control" type = "text" name="degree" id = "degree" [(ngModel)]="user.degree">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Course: </span>
+        </div>
+        <input class="form-control" type = "text" name="course" id = "course" [(ngModel)]="user.course">
+      </div>
+
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Graduation Year:  </span>
+        </div>
+        <input class="form-control" type = "date" name="course" id = "graduationYear" [(ngModel)]="user.graduationYear">
+      </div>
+
+      <button class = "btn btn-outline-primary"  type="button" awPreviousStep>Go to previous step</button>&nbsp;&nbsp;
+      <button  class = "btn btn-outline-primary"  type="button" awNextStep>Go to next step</button>
     </aw-wizard-step>
 
-    <aw-wizard-step stepTitle="Title of step 2">
-    <label for="email">Email ID: </label><input type = "text" name="email" id="email" [(ngModel)]="user.email"><br><br>
-    <label for="username">Username: </label><input type = "text" name="username" id="username" [(ngModel)]="user.userName"><br><br>
-    <label for="password">Password: </label><input type = "password" name="password" id = "password" [(ngModel)]="user.password"><br><br>
-      <button type="button" awPreviousStep>Go to previous step</button>
-      <button type="button" awNextStep>Go to next step</button>
-    </aw-wizard-step>
+
     <aw-wizard-step stepTitle="Title of step 3">
-      <ng-multiselect-dropdown
-        name="dropdown"
-        [placeholder]="'custom placeholder'"
-        [data]="dropdownList"
-        [(ngModel)]="selectedItems"
-        [settings]="dropdownSettings"
+      <br><br>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Email ID:</span>
+        </div>
+        <input class="form-control" type = "text" name="email" id="email" [(ngModel)]="user.email">
+      </div>
 
-      >
-      </ng-multiselect-dropdown>
-      <button type="button" awPreviousStep>Previous Step</button>
-      <button type = "submit">SIGNUP</button>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Username:</span>
+        </div>
+        <input class="form-control" type = "text" name="username" id="username" [(ngModel)]="user.userName">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Password:</span>
+        </div>
+        <input class="form-control" type = "password" name="password" id = "password" [(ngModel)]="user.password">
+      </div>
+
+      <button  class = "btn btn-outline-primary"type="button" awPreviousStep>Go to previous step</button>&nbsp;&nbsp;
+      <button class = "btn btn-outline-primary" type="button" awNextStep>Go to next step</button>
+    </aw-wizard-step>
+
+
+
+
+    <aw-wizard-step stepTitle="Title of step 3">
+      <br><br>
+      <tag-input
+        [(ngModel)]="tags"
+        name = "tagsLst"
+        [onlyFromAutocomplete]="true">
+        <tag-input-dropdown [showDropdownIfEmpty]="true"
+                            [identifyBy]="'_id'"
+                            [displayBy]="'tagName'"
+                            [autocompleteItems]="tagsList">
+        </tag-input-dropdown>
+      </tag-input>
+      <br><br><br>
+      <button class = "btn btn-outline-primary" type="button" awPreviousStep>Previous Step</button>&nbsp;&nbsp;
+      <button class = "btn btn-outline-primary" type = "submit">SIGNUP</button>
+
     </aw-wizard-step>
 
   </aw-wizard>
