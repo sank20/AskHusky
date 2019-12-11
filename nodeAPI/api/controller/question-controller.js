@@ -2,6 +2,11 @@
 let questionService = require('./../services/question-service');
 let questionObj = require('./../model/question');
 
+/**
+ * Handles the http error on the server side
+ * @param response
+ * @returns {errorFunction}
+ */
 let errorHandler = function(response) {
     let errorFunction = function (error) {
         console.log(response);
@@ -15,6 +20,14 @@ let errorHandler = function(response) {
     return errorFunction;
 };
 
+
+/**
+ * fetch method to get the corresponding answers pertaining
+ * to a question
+ * @param request
+ * @param response
+ * @constructor
+ */
 exports.AnswerFetch = function(request, response){
     const resolve = (question) => {
         console.log(question);
@@ -78,7 +91,8 @@ exports.get = function (request, response) {
 };
 
 /**
- * 
+ * returns a JSON question Object
+ * searching it by ID
  * @param request
  * @param response
  */
@@ -92,6 +106,7 @@ exports.getById = function (request, response) {
         .then(resolve)
         .catch(errorHandler(response));
 };
+
 /**
  * Updates and returns a question object in JSON
  * @param request
@@ -131,6 +146,12 @@ exports.insertAnswer = function (request, response) {
     // }
 };
 
+/**
+ * update method to update the answer to a pertaining question
+ * and returns the answer object
+ * @param request
+ * @param response
+ */
 exports.updateAnswer = function (request, response) {
     let answerObj = Object.assign({},request.body);
     const resolve = (answer) => {
