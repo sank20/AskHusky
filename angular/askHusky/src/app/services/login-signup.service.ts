@@ -29,7 +29,7 @@ export class LoginSignupService {
     return this.http.get(this.baseUri + '/tags', {headers: this.headers}); }
 
   changePassword(changePasswordObj: object) {
-    return this.http.put(this.baseUri + '/changePassword', changePasswordObj, {headers: this.headers});
+    return this.http.post(this.baseUri + '/user/changePassword', changePasswordObj, {headers: this.headers});
   }
 
 }

@@ -12,20 +12,14 @@ import {UserService} from '../../services/user.service';
 export class ProfileComponent implements OnInit {
 
 constructor(private loginSignupService: LoginSignupService, private router: Router, private userService: UserService) { }
-private user: User;
+
 changePasswordObj = { userName: null, oldPassword: null , newPassword: null };
 
-  // @Input(){}
 
 ngOnInit() {
-  this.user = this.userService.getterUser();
- // this.user = this.loginSignupService.getLoggedInUser();
- //  this.changePasswordObj.userName = this.user.userName;
- //  console.log('profile fetched');
-    // this.getProfile();
   }
   changePassword() {
-    this.loginSignupService.changePassword(this.user).subscribe(
+    this.loginSignupService.changePassword(this.changePasswordObj).subscribe(
       data => console.log(data),
       error => console.log(error)
     );

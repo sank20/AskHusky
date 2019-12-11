@@ -69,7 +69,7 @@ export class QuestionsListComponent implements OnInit {
     this.selectedQuestion = question;
     // this.router.
     this.questionService.storeSelectedQuestion(this.selectedQuestion);
-    this.router.navigate(['dashboard/question-details']);
+    this.router.navigate(['dashboard/questions/details']);
   }
 
   setMeeting(meetingUserQuestion: Question) {
