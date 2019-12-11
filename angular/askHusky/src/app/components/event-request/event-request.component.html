@@ -1,23 +1,26 @@
 <div class="container">
-  <div class="card" >
+  <div class="card">
     <div class="card-title">{{ user.userName}}</div>
     <div class="card-body">
       <form #eventForm="ngForm" (ngSubmit)="submitRequestEvent(eventForm.form);">
         <!--      Meeting Title -->
         <div class="form-group">
           <label for="title">Title :</label>
-          <input type="text" placeholder="Title" class="form-control" name="title" id="title" ngModel #titleField="ngModel">
+          <input type="text" placeholder="Title" class="form-control" name="title" id="title" ngModel
+                 #titleField="ngModel">
         </div>
         <!--      Meeting Description -->
         <div class="form-group">
           <label for="description">Description :</label>
-          <input type="text" placeholder="Description" class="form-control" name="description" id="description" ngModel #descriptionField="ngModel">
+          <input type="text" placeholder="Description" class="form-control" name="description" id="description" ngModel
+                 #descriptionField="ngModel">
         </div>
         <!--      Meeting Location -->
 
         <div class="form-group">
           <label for="location">Location :</label>
-          <input type="text" placeholder="location" class="form-control" name="location" id="location" ngModel #locationField="ngModel">
+          <input type="text" placeholder="location" class="form-control" name="location" id="location" ngModel
+                 #locationField="ngModel">
         </div>
         <!--      Meeting Date -->
 

@@ -1,3 +1,6 @@
+/**
+ * event meeting request POJO class
+ */
 export class EventRequest {
 
   public requestStatus: string;

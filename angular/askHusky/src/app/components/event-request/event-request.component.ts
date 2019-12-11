@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EventServiceService} from '../../services/event-service.service';
 import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
@@ -15,9 +15,13 @@ import {Question} from '../../classes/question.model';
 
 export class EventRequestComponent implements OnInit {
   private user: User;
+
   // tslint:disable-next-line:max-line-length
-  constructor(private eventServiceService: EventServiceService, private userService: UserService, private questionService: QuestionService, private router: Router) { }
+  constructor(private eventServiceService: EventServiceService, private userService: UserService, private questionService: QuestionService, private router: Router) {
+  }
+
   selectedQuestion: Question;
+
   ngOnInit() {
     this.user = this.userService.getterUser();
     this.selectedQuestion = this.questionService.getSelectedQuestion();
@@ -25,10 +29,16 @@ export class EventRequestComponent implements OnInit {
 
   submitRequestEvent(form) {
     // tslint:disable-next-line:max-line-length
-    const newVar = {...form.value, organizer: this.user.userName, attendees: this.selectedQuestion.userName , requestStatus: 'INITIATED', questionID: this.selectedQuestion.id };
+    const newVar = {
+      ...form.value,
+      organizer: this.user.userName,
+      attendees: this.selectedQuestion.userName,
+      requestStatus: 'INITIATED',
+      questionID: this.selectedQuestion.id
+    };
     // tslint:disable-next-line:prefer-const one-variable-per-declaration
     newVar.date = new Date(newVar.date.year, newVar.date.month, newVar.date.day);
-    newVar.time = ((newVar.time.hour + ':' + newVar.time.minute + ':' + '00') );
+    newVar.time = ((newVar.time.hour + ':' + newVar.time.minute + ':' + '00'));
     this.eventServiceService.createRequest(newVar).subscribe(
       data => console.log(data),
       error => console.log(error));
