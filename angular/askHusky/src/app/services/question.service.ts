@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Question} from '../classes/question.model';
 import {environment} from '../../environments/environment';
+import {Answer} from "../classes/answer.model";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,9 @@ export class QuestionService {
     return this.http.post(this.baseUri + '/questions', data, {headers: this.headers});
   }
 
+  updateAnswer(questionId: string, answer: Answer) {
+    return this.http.put(this.baseUri + '/questions/' + questionId + '/answers', answer, {headers: this.headers});
+  }
   storeSelectedQuestion(selectedQuestion: Question) {
    this.selectedQuestion = selectedQuestion;
   }
