@@ -29,7 +29,4 @@ export class EventViewRequestsComponent implements OnInit {
     console.log(this.organizerList);
   }
 
-
-
-
 }

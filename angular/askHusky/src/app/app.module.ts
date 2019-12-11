@@ -26,6 +26,7 @@ import {TagInputModule} from 'ngx-chips';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {JwPaginationComponent} from 'jw-angular-pagination';
+import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {JwPaginationComponent} from 'jw-angular-pagination';
     EventViewRequestsComponent,
     NavbarComponent,
     QuestionsListComponent,
-    JwPaginationComponent
+    JwPaginationComponent,
+    QuestionDetailComponent
   ],
   imports: [
     BrowserModule,

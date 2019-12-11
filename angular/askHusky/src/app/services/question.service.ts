@@ -24,6 +24,6 @@ export class QuestionService {
   }
 
   createQuestion(data: any) {
-    return this.http.post(this.baseUri + '/questions/create', data, {headers: this.headers});
+    return this.http.post(this.baseUri + '/questions', data, {headers: this.headers});
   }
 }

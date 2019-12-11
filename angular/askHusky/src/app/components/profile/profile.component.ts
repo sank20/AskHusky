@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LoginSignupService} from '../../services/login-signup.service';
 import {User} from '../../classes/user';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,16 +11,17 @@ import {Router} from "@angular/router";
 })
 export class ProfileComponent implements OnInit {
 
-constructor(private loginSignupService: LoginSignupService, private router: Router) { }
+constructor(private loginSignupService: LoginSignupService, private router: Router, private userService: UserService) { }
 private user: User;
-  changePasswordObj = { userName: null, oldPassword: null , newPassword: null };
+changePasswordObj = { userName: null, oldPassword: null , newPassword: null };
 
   // @Input(){}
 
-ngOnInit(){
+ngOnInit() {
+  this.user = this.userService.getterUser();
  // this.user = this.loginSignupService.getLoggedInUser();
-  this.changePasswordObj.userName = this.user.userName;
-  console.log('profile fetched');
+ //  this.changePasswordObj.userName = this.user.userName;
+ //  console.log('profile fetched');
     // this.getProfile();
   }
   changePassword() {

@@ -9,6 +9,8 @@ import { EventRequestComponent } from './components/event-request/event-request.
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {CreateQuestionComponent} from './components/create-question/create-question.component';
 import { EventViewRequestsComponent } from './components/event-view-requests/event-view-requests.component';
+import {QuestionDetailComponent} from './components/question-detail/question-detail.component';
+import {QuestionsListComponent} from './components/questions-list/questions-list.component';
 
 
 const routes: Routes = [
@@ -20,11 +22,10 @@ const routes: Routes = [
       {path: 'profile/:id', component: ProfileComponent},
       {path: 'request-events', component: EventRequestComponent},
       {path: 'create-question', component: CreateQuestionComponent},
-      {path: 'request-view', component: EventViewRequestsComponent}
+      {path: 'request-view', component: EventViewRequestsComponent},
+      {path : 'question-details', component : QuestionDetailComponent}
     ]
-  }
-];
-
+  }];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
