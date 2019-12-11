@@ -199,6 +199,16 @@ exports.changePassword = function(req, res){
 
 };
 
+exports.updatePoints = function(req, res){
+    userService.updatePoints(req.body.userName, req.body.points, req.body.tagName).then(
+        res.status(409).json({
+            statusCode: '409',
+            message: 'Successful update',
+            data: []
+        })
+    )
+};
+
 let renderErrorResponse = (response) => {
     console.log("In here");
     const errorCallback = (error) => {

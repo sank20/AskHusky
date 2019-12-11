@@ -138,6 +138,7 @@ exports.updateAnswer = function (request, response) {
         response.json(answer);
     };
         let questionId = request.params.questionId;
+
         // console.log(questionId);
         // console.log(answerObj);
         questionService.updateAnswer(questionId, answerObj)
