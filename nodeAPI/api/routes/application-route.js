@@ -39,14 +39,28 @@ module.exports = function (expressApp) {
         .put(questionController.put)
         .delete(questionController.delete);
 
+    
+    /** 
+     * For getting all the questions for given user
+    */
     expressApp.route('/questions/user/:userName')
         .get(questionController.getById);
         // .put(questionController.put)
         // .delete(questionController.delete);
     // -- Answer
 
+    /**  
+     * For inserting an answer in a given question
+    */
     expressApp.route('/questions/:questionId/answers')
-        .put(questionController.putAnswer);
+        .post(questionController.insertAnswer);
+    // -- Tags
+    
+    /**
+     * For updating an answer in a given question
+     */
+    expressApp.route('/questions/:questionId/answers')
+        .put(questionController.updateAnswer);
     // -- Tags
 
     const tagController = require('../controller/tag-controller');
