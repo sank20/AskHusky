@@ -41,6 +41,10 @@
   "spamCount" : 0,
   "isActive" : true
 }*/
+
+/**
+ * importing answer object
+ */
 import {Answer} from './answer.model';
 
 export class Question {

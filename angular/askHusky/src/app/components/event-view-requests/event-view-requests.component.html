@@ -4,7 +4,7 @@
 
       <!---->
       <br>
-      <div class="container" *ngFor="let eventRequest of organizerList" >
+      <div class="container col-md-7" *ngFor="let eventRequest of organizerList">
         <br>
 
 
@@ -16,17 +16,22 @@
           <div class="card-body">
             <h5 class="card-title">{{eventRequest.description}}</h5>
             <dl class="list-unstyled mt-3 mb-4">
-              <dt> Location :</dt><dd>- {{eventRequest.location}} </dd>
-              <dt> Attendee :</dt><dd>- {{eventRequest.attendees}}</dd>
-              <dt> Date :</dt><dd>- {{eventRequest.date | date:"fullDate"}}</dd>
-              <dt> Time :</dt><dd>- {{eventRequest.time}}</dd>
-              <dt> Number of Hours :</dt><dd>- {{eventRequest.time}}</dd>
+              <dt> Location :</dt>
+              <dd>- {{eventRequest.location}} </dd>
+              <dt> Attendee :</dt>
+              <dd>- {{eventRequest.attendees}}</dd>
+              <dt> Date :</dt>
+              <dd>- {{eventRequest.date | date:"fullDate"}}</dd>
+              <dt> Time :</dt>
+              <dd>- {{eventRequest.time}}</dd>
+              <dt> Number of Hours :</dt>
+              <dd>- {{eventRequest.time}}</dd>
             </dl>
           </div>
           <div [ngSwitch]="eventRequest.requestStatus" class="card-footer text-muted">
-            <div *ngSwitchCase="'INITIATED'"><span  class="badge badge-pill badge-primary">INITIATED</span></div>
-            <div *ngSwitchCase="'ACCEPTED'"><span  class="badge badge-pill badge-success">ACCEPTED</span></div>
-            <div *ngSwitchCase="'REJECTED'"><span  class="badge badge-pill badge-danger">REJECTED</span> <br>
+            <div *ngSwitchCase="'INITIATED'"><span class="badge badge-pill badge-primary">INITIATED</span></div>
+            <div *ngSwitchCase="'ACCEPTED'"><span class="badge badge-pill badge-success">ACCEPTED</span></div>
+            <div *ngSwitchCase="'REJECTED'"><span class="badge badge-pill badge-danger">REJECTED</span> <br>
               <div class="alert alert-danger">
                 <strong>Reason :</strong>{{eventRequest.requestStatusReason}}
               </div>
@@ -47,7 +52,7 @@
     <ng-template ngbTabTitle>My Invites</ng-template>
     <ng-template ngbTabContent>
       <!--        -->
-      <div *ngFor="let eventRequest of attendeeList" class="container col-md-4">
+      <div *ngFor="let eventRequest of attendeeList" class="container col-md-7">
         <br>
         <div class="card text-center">
           <div class="card-header">
@@ -56,23 +61,29 @@
           <div class="card-body">
             <h5 class="card-title">{{eventRequest.description}}</h5>
             <p class="card-text"> Location : {{eventRequest.location}}</p>
-            <p class="card-text"> Attendee : {{eventRequest.attendees}}</p>
+            <p class="card-text"> Requestor : {{eventRequest.organizer}}</p>
             <div *ngIf="isInitiated(eventRequest.requestStatus); then thenBlock; else elseBlock;"></div>
             <ng-template #thenBlock>
-              <button type="button" class="btn btn-outline-success" (click)="acceptRequest(eventRequest)">Accept</button>
+              <button type="button" class="btn btn-outline-success" (click)="acceptRequest(eventRequest)">Accept
+              </button>
               <button type="button" class="btn btn-outline-danger" (click)="rejectRequest(eventRequest)">Reject</button>
               <input type="text" [(ngModel)]="eventRequest.requestStatusReason">
             </ng-template>
             <ng-template #elseBlock>
               <div *ngIf="isAccepted(eventRequest.requestStatus); then thenBlock; else elseBlock;"></div>
-              <ng-template #thenBlock><button type="button" class="btn btn-success" disabled>Accepted</button></ng-template>
+              <ng-template #thenBlock>
+                <button type="button" class="btn btn-success" disabled>Accepted</button>
+              </ng-template>
               <ng-template #elseBlock>
                 <button type="button" class="btn btn-danger" disabled>Rejected</button>
+                <br>
                 <br>
                 <div class="alert alert-danger">
                   <strong>Reason :</strong>{{eventRequest.requestStatusReason}}
                 </div>
                 <br>
+                <br>
+
               </ng-template>
 
 
@@ -85,7 +96,6 @@
         <br>
       </div>
       <!--      -->
-
 
 
     </ng-template>

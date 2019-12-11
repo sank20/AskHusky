@@ -20,12 +20,12 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {path: 'changePassword', component: ProfileComponent},
-      {path: 'request-events', component: EventRequestComponent},
-      {path: 'create-question', component: CreateQuestionComponent},
-      {path: 'request-view', component: EventViewRequestsComponent},
-      {path : 'question-details', component : QuestionDetailComponent},
-      {path : 'question-list', component : QuestionsListComponent},
-      {path : '', redirectTo: 'question-list', pathMatch: 'full'}
+      {path: 'requests/add', component: EventRequestComponent},
+      {path: 'questions/add', component: CreateQuestionComponent},
+      {path: 'requests/view', component: EventViewRequestsComponent},
+      {path : 'questions/details', component : QuestionDetailComponent},
+      {path : 'questions/list', component : QuestionsListComponent},
+      {path : '', redirectTo: 'questions/list', pathMatch: 'full'}
     ]
   },
   {path : '**', component : HomepageComponent} ];

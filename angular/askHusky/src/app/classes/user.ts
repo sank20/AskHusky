@@ -1,5 +1,11 @@
+/**
+ * Tag object import
+ */
 import {Tag} from './tag';
 
+/**
+ * User POJO created
+ */
 export class User {
   public firstName: string;
   public lastName: string;

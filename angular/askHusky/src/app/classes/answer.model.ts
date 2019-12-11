@@ -1,3 +1,7 @@
+/**
+ * answer model POJO
+ */
+
 export class Answer {
   public id: string;
   constructor(public userName: string, public answer: string, public upvotes: number, public downvotes: number, public isActive: boolean) {}
