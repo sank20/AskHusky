@@ -26,8 +26,8 @@ module.exports = function (expressApp) {
     const questionController = require('../controller/question-controller');
 
     expressApp.route('/questions')
-        .get(checkAuth,questionController.list)
-        .post(checkAuth,questionController.post);
+        .get(checkAuth, questionController.list)
+        .post(checkAuth, questionController.post);
 
     /**
      * Routes '/questions/:id' endpoints to get, Update, Delete a question
@@ -49,10 +49,13 @@ module.exports = function (expressApp) {
         .put(checkAuth,questionController.putAnswer);
     // -- Tags
 
+    expressApp.route('/answers/updateData')
+        .put(questionController.AnswerFetch);
+
     const tagController = require('../controller/tag-controller');
 
     expressApp.route('/tags')
-        .get(checkAuth,tagController.list)
+        .get(tagController.list)
         .post(checkAuth,tagController.post);
 
     /**
