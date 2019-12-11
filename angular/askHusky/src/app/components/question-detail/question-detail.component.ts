@@ -24,6 +24,10 @@ export class QuestionDetailComponent implements OnInit {
 
   upvote(answer: Answer) {
     console.log("upvote!");
+    let newScore: number = answer.upvotes;
+    newScore++;
+    answer.upvotes = newScore;
+    this.questionService.updateAnswer(this.selectedQuestion.id, answer).subscribe((d) => console.log(d));;
     // for (ans of this.selectedQuestion.answers){
     //
     // }
@@ -31,5 +35,10 @@ export class QuestionDetailComponent implements OnInit {
 
   downvote(answer: Answer) {
     console.log("downvote!");
+    console.log("upvote!");
+    let newScore: number = answer.downvotes;
+    newScore++;
+    answer.downvotes = newScore;
+    this.questionService.updateAnswer(this.selectedQuestion.id, answer).subscribe((d) => console.log(d));;
   }
 }
