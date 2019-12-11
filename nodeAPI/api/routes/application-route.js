@@ -91,8 +91,8 @@ module.exports = function (expressApp) {
      * @param expressApp
      */
     expressApp.route('/events/requests')
-        .post(checkAuth,eventRequestController.post)
-        .get(checkAuth,eventRequestController.list); // create a new request event
+        .post(eventRequestController.post)
+        .get(eventRequestController.list); // create a new request event
 
     /**
      * Routes '/event-request' endpoints to Create a new event request towards attendee
@@ -100,9 +100,9 @@ module.exports = function (expressApp) {
      * @param expressApp
      */
     expressApp.route('/events/requests/:eventRequestID')
-        .put(checkAuth,eventRequestController.put)
-        .get(checkAuth,eventRequestController.get)
-        .delete(checkAuth,eventRequestController.delete); // bring all the event requests
+        .put(eventRequestController.put)
+        .get(eventRequestController.get)
+        .delete(eventRequestController.delete); // bring all the event requests
 
     /**
      * Routes '/event-request/:eventRequestID' endpoints to Create a new event request towards attendee
@@ -110,7 +110,7 @@ module.exports = function (expressApp) {
      * @param expressApp
      */
     expressApp.route('/events/requests/organizers/:organizerID')
-        .get(checkAuth,eventRequestController.orgGet);
+        .get(eventRequestController.orgGet);
         // .put(eventRequestController.orgPut)
         // .delete(eventRequestController.orgDelete);
 
@@ -121,7 +121,7 @@ module.exports = function (expressApp) {
      * @param expressApp
      */
     expressApp.route('/events/requests/attendees/:attendeeID')
-        .get(checkAuth,eventRequestController.attGet);
+        .get(eventRequestController.attGet);
         // .put(eventRequestController.attPut)
         // .delete(eventRequestController.attDelete);
 
