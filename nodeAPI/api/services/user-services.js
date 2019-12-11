@@ -30,10 +30,10 @@ exports.updatePoints = function(userName, point){
 }
 
 
-exports.updatePoints = function (userName, points, tagName) {
+exports.updatePoints = function (userName, points) {
 
     const promise = User.findOneAndUpdate(
-        {'userName': userName, 'interestedTags.tagName': tagName}, {$set:{'interestedTags.tagName': 'interestedTags.tagName' + points}}
+        {'userName': userName}, {$inc: {'points': points}}
     );
     return promise;
 }

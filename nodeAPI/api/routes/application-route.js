@@ -26,8 +26,8 @@ module.exports = function (expressApp) {
     const questionController = require('../controller/question-controller');
 
     expressApp.route('/questions')
-        .get(questionController.list)
-        .post(questionController.post);
+        .get(checkAuth, questionController.list)
+        .post(checkAuth, questionController.post);
 
     /**
      * Routes '/questions/:id' endpoints to get, Update, Delete a question
@@ -35,16 +35,16 @@ module.exports = function (expressApp) {
      * @param 'questions/:id'
      */
     expressApp.route('/questions/:questionId')
-        .get(questionController.get)
-        .put(questionController.put)
-        .delete(questionController.delete);
+        .get(checkAuth, questionController.get)
+        .put(checkAuth, questionController.put)
+        .delete(checkAuth, questionController.delete);
 
 
     /**
      * For getting all the questions for given user
     */
     expressApp.route('/questions/user/:userName')
-        .get(questionController.getById);
+        .get(checkAuth, questionController.getById);
         // .put(questionController.put)
         // .delete(questionController.delete);
     // -- Answer
@@ -53,14 +53,14 @@ module.exports = function (expressApp) {
      * For inserting an answer in a given question
     */
     expressApp.route('/questions/:questionId/answers')
-        .post(questionController.insertAnswer);
+        .post(checkAuth, questionController.insertAnswer);
 
 
     /**
      * For updating an answer in a given question
      */
     expressApp.route('/questions/:questionId/answers')
-        .put(questionController.updateAnswer);
+        .put(checkAuth, questionController.updateAnswer);
 
 
     const tagController = require('../controller/tag-controller');
@@ -126,7 +126,7 @@ module.exports = function (expressApp) {
         // .delete(eventRequestController.attDelete);
 
     expressApp.route('/skillboard/score')
-        .post(userController.updatePoints)
+        .put(userController.updatePoints)
 
 
 

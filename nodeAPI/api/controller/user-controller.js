@@ -225,7 +225,7 @@ exports.changePassword = function(req, res){
 };
 
 exports.updatePoints = function(req, res){
-    userService.updatePoints(req.body.userName, req.body.points, req.body.tagName).then(
+    userService.updatePoints(req.body.userName, req.body.points).then(
         res.status(409).json({
             statusCode: '409',
             message: 'Successful update',
