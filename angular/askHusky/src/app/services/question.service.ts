@@ -22,4 +22,8 @@ export class QuestionService {
   fetchTags() {
     return this.http.get(this.baseUri + '/tags', {headers: this.headers});
   }
+
+  createQuestion(data: any) {
+    return this.http.post(this.baseUri + '/questions/create', data, {headers: this.headers});
+  }
 }

@@ -3,21 +3,21 @@
   <form xmlns="http://www.w3.org/1999/html">
   <div class="form-group">
     <h3 class = "text-primary" for="exampleInputEmail1">Type a question</h3>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="question" [(ngModel)]="questionData.title" placeholder="Enter email">
   </div>
   <br>
     <div class="form-group">
   <h3 class = "text-primary">Tags</h3>
-  <tag-input [ngModel]="tags" name="tags" [identifyBy]="'_id'" [displayBy]="'tagName'">
+  <tag-input [(ngModel)]="tags" name="tags" [identifyBy]="'_id'" [displayBy]="'tagName'">
 
   </tag-input>
     </div>
   <br>
     <div class="form-group">
   <h3 class = "text-primary" for="exampleInputPassword1">Text Editor</h3>
-    <ckeditor [editor]="Editor" data=""></ckeditor>
+    <ckeditor [editor]="Editor" [(ngModel)]="questionData.description" name="editor"></ckeditor>
   <br><br>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" (click)="createQuestion()">Submit</button>
     </div>
 </form>
 </div>
