@@ -27,6 +27,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {JwPaginationComponent} from 'jw-angular-pagination';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
+import { SkillsBoardComponent } from './components/skills-board/skills-board.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { QuestionDetailComponent } from './components/question-detail/question-d
     NavbarComponent,
     QuestionsListComponent,
     JwPaginationComponent,
-    QuestionDetailComponent
+    QuestionDetailComponent,
+    SkillsBoardComponent
   ],
   imports: [
     BrowserModule,
