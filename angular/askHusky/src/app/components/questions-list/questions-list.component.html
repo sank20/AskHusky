@@ -1,18 +1,50 @@
-<div class="main-container">
-  <div class="list-container">
+
+<div class="card">
+
+  <div class="card-body">
+    <br>
     <div *ngFor="let question of pageOfItems">
-      <div class="question-item"(click)="onQuestionItemClick(question)" >
-        <div class="question-title">{{question.title}}</div>
-        <div class="question-description">{{question.description}}</div>
-        <div class="answer-count">{{question.answers.length}} Answers</div>
-        <div class="date-created">Posted on: {{question.dateCreated}}</div>
-        <div class="author-name">Posted by: {{question.userName}}</div>
-        <div class="top-answer"><br>{{question.topAnswerUser}}: {{question.topAnswerContent}}</div>
+      <!----><br>
+      <div class="card" (click)="onQuestionItemClick(question)" >
+        <div class="card-header bg-light">
+          {{question.title}}
+        </div>
+        <div class="card-body bg-light">
+          {{question.description}}
+          <!--     Answer Card    -->
+          <!--        /// Answer Card  -->
+        </div>
+        <div class="card-footer">
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <h6>Example heading <span class="badge badge-dark">Answers <span class="badge badge-light">{{question.answers.length}} </span></span></h6>
+            </li>
+            <li class="list-inline-item">
+              Posted on: {{question.dateCreated}}
+            </li>
+            <li class="list-inline-item">
+              Posted by: {{question.userName}}
+            </li>
+          </ul>
+        </div>
       </div>
+
+
+
+
+      <!--      -----------------------------                         -->
+
+      <!--        <div class="top-answer"><br>{{question.topAnswerUser}}: {{question.topAnswerContent}}</div>-->
       <br>
-    </div>
+    </div>   <!-- //This one is for loop-->
+    <br>
+
+    <!--      -->
   </div>
-  <div class="card-footer pb-0 pt-3">
-    <jw-pagination [items]="questions" [pageSize]="6" (changePage)="onChangePage($event)"></jw-pagination>
-  </div>
+</div>
+
+
+<!---->
+<div class="card-footer pb-0 pt-3">
+  <jw-pagination [items]="questions" [pageSize]="6" (changePage)="onChangePage($event)"></jw-pagination>
 </div>
