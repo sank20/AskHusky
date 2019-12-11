@@ -13,6 +13,7 @@ export class User {
   public password: string;
   public userStatus?: boolean;
   public email: string;
+  public points: string;
 
   constructor() {
     this.interestedTags = new Array<Tag>();
