@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {EventServiceService} from '../../services/event-service.service';
+import {LoginSignupService} from '../../services/login-signup.service';
+import {Router} from '@angular/router';
+import {EventRequest} from './../../classes/eventRequest';
+import {User} from '../../classes/user';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-event-view-requests',
@@ -7,9 +13,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventViewRequestsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService,private eventServiceService: EventServiceService, private loginSignupService: LoginSignupService, private router: Router) { }
 
+  private user: User ;
+  organizerList: Array<EventRequest>;
   ngOnInit() {
+
+    this.user = this.userService.getterUser();
+    // @ts-ignore
+    this.eventServiceService.listOrganizer(user.userName).subscribe( orgList => {
+      this.organizerList = orgList;
+    });
+
+    console.log('orgList');
+    console.log(this.organizerList);
   }
+
+
+
 
 }

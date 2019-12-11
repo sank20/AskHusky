@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginSignupService} from './services/login-signup.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
@@ -22,7 +22,10 @@ import {HttpInterceptor} from '@angular/common/http';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { EventViewRequestsComponent } from './components/event-view-requests/event-view-requests.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { JwPaginationComponent } from 'jw-angular-pagination';
+import {TagInputModule} from "ngx-chips";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
+import {JwPaginationComponent} from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
@@ -44,10 +47,14 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     ArchwizardModule,
     NgbModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    TagInputModule,
+    BrowserAnimationsModule,
+    CKEditorModule
   ],
   providers: [LoginSignupService, {
     provide: HTTP_INTERCEPTORS,

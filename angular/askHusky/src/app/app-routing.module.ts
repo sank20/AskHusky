@@ -6,6 +6,8 @@ import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {HomepageComponent} from  './components/homepage/homepage.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import { EventRequestComponent } from './components/event-request/event-request.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {CreateQuestionComponent} from './components/create-question/create-question.component';
 import { EventViewRequestsComponent } from './components/event-view-requests/event-view-requests.component';
 
 
@@ -18,6 +20,7 @@ const routes: Routes = [
       {path: '', component: DashboardComponent},
       {path: 'profile/:id', component: ProfileComponent},
       {path: 'request-events', component: EventRequestComponent},
+      {path: 'create-question', component: CreateQuestionComponent},
       {path: 'request-view', component: EventViewRequestsComponent}
     ]
   }
