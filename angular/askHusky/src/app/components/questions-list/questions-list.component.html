@@ -1,8 +1,28 @@
-<div class="main-container">
-  <div class="list-container">
+<div class="card">
+
+  <div class="card-body">
     <div *ngFor="let question of pageOfItems">
-      <div class="question-item"(click)="onQuestionItemClick(question)" >
-        <div class="question-title">{{question.title}}</div>
+<!---->
+      <div class="card" (click)="onQuestionItemClick(question)" >
+        <div class="card-header bg-light">
+          {{question.title}}
+        </div>
+        <div class="card-body">
+
+<!--     Answer Card    -->
+<!--        /// Answer Card  -->
+        </div>
+        <div class="card-footer">
+
+        </div>
+      </div>
+
+
+
+
+<!--      -----------------------------                         -->
+
+        <div class="question-title"></div>
         <div class="question-description">{{question.description}}</div>
         <div class="answer-count">{{question.answers.length}} Answers</div>
         <div class="date-created">Posted on: {{question.dateCreated}}</div>
@@ -10,9 +30,11 @@
         <div class="top-answer"><br>{{question.topAnswerUser}}: {{question.topAnswerContent}}</div>
       </div>
       <br>
+
+<!--      -->
     </div>
   </div>
   <div class="card-footer pb-0 pt-3">
     <jw-pagination [items]="questions" [pageSize]="6" (changePage)="onChangePage($event)"></jw-pagination>
   </div>
-</div>
+<!--</div>-->

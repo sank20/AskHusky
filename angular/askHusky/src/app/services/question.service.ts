@@ -11,7 +11,7 @@ export class QuestionService {
 
   private baseUri = 'http://localhost:3000';
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
-
+  private selectedQuestion: Question;
   constructor(private http: HttpClient) { }
   public list(): Observable<Array<Question>> {
     const questions$ = this.http
@@ -25,5 +25,12 @@ export class QuestionService {
 
   createQuestion(data: any) {
     return this.http.post(this.baseUri + '/questions', data, {headers: this.headers});
+  }
+
+  storeSelectedQuestion(selectedQuestion: Question) {
+   this.selectedQuestion = selectedQuestion;
+  }
+  getSelectedQuestion() {
+    return this.selectedQuestion;
   }
 }

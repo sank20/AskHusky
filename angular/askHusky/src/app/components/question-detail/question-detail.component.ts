@@ -10,10 +10,12 @@ import {RouterModule} from '@angular/router';
 })
 export class QuestionDetailComponent implements OnInit {
 
+  private selectedQuestion: Question;
   constructor(private router: RouterModule, private questionService: QuestionService) { }
 
-  @Input() selectedQuestion: Question;
+  // @Input() selectedQuestion: Question;
   ngOnInit() {
+    this.selectedQuestion = this.questionService.getSelectedQuestion();
   }
 
 }
