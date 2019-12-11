@@ -5,25 +5,30 @@
     <br>
     <div *ngFor="let question of pageOfItems">
       <!----><br>
-      <div class="card" (click)="onQuestionItemClick(question)" >
+      <div class="card">
         <div class="card-header bg-light">
-          {{question.title}}
+          <small class="blockquote font-italic lead">Question :</small>
+          <h3><span (click)="onQuestionItemClick(question)">{{question.title}}</span></h3>
         </div>
         <div class="card-body bg-light">
+          <small class="blockquote font-italic lead">Description :</small>
           {{question.description}}
           <!--     Answer Card    -->
           <!--        /// Answer Card  -->
         </div>
         <div class="card-footer">
-          <ul class="list-inline">
+          <ul class="list-inline justify-content-between">
             <li class="list-inline-item">
-              <h6>Example heading <span class="badge badge-dark">Answers <span class="badge badge-light">{{question.answers.length}} </span></span></h6>
+              <h6><span class="badge badge-dark">Answers <span class="badge badge-light">{{question.answers.length}} </span></span></h6>
             </li>
             <li class="list-inline-item">
               Posted on: {{question.dateCreated}}
             </li>
             <li class="list-inline-item">
               Posted by: {{question.userName}}
+            </li>
+            <li class="list-inline-item">
+
             </li>
           </ul>
         </div>
@@ -35,7 +40,7 @@
       <!--      -----------------------------                         -->
 
       <!--        <div class="top-answer"><br>{{question.topAnswerUser}}: {{question.topAnswerContent}}</div>-->
-      <br>
+
     </div>   <!-- //This one is for loop-->
     <br>
 
