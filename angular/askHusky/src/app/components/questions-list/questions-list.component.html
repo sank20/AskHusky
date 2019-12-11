@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="list-container">
     <div *ngFor="let question of pageOfItems">
-      <div class="question-item">
+      <div class="question-item"(click)="onQuestionItemClick(question)" (>
         <div class="question-title">{{question.title}}</div>
         <div class="question-description">{{question.description}}</div>
         <div class="answer-count">{{question.answers.length}} Answers</div>

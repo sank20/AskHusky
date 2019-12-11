@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Question} from '../../classes/question.model';
 import {QuestionService} from '../../services/question.service';
 import {Answer} from '../../classes/answer.model';
+import {Router, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-questions-list',
@@ -15,7 +16,7 @@ export class QuestionsListComponent implements OnInit {
 
   // items = [];
   pageOfItems: Array<Question>;
-  constructor(private questionService: QuestionService) { }
+  constructor(private router: Router, private questionService: QuestionService) { }
 
   ngOnInit() {
     this.questionService.list().subscribe(questions => {
@@ -55,5 +56,11 @@ export class QuestionsListComponent implements OnInit {
 
   onChangePage(pageOfItems: Array<Question>) {
     this.pageOfItems = pageOfItems;
+  }
+
+  onQuestionItemClick(question: Question) {
+    this.selectedQuestion = question;
+    // this.router.
+    this.router.navigate(['/question-details']);
   }
 }
