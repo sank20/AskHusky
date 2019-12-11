@@ -14,6 +14,7 @@ export class EventRequest {
   public organizer: string;
   public attendees: string;
   public questionID: string;
+  public requestStatusReason: string;
 
 
 }
