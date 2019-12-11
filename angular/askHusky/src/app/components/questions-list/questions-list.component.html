@@ -1,40 +1,55 @@
+
 <div class="card">
 
   <div class="card-body">
+    <br>
     <div *ngFor="let question of pageOfItems">
-<!---->
-      <div class="card" (click)="onQuestionItemClick(question)" >
+      <!----><br>
+      <div class="card">
         <div class="card-header bg-light">
-          {{question.title}}
+          <small class="blockquote font-italic lead">Question :</small>
+          <h3><span (click)="onQuestionItemClick(question)">{{question.title}}</span></h3>
         </div>
-        <div class="card-body">
-
-<!--     Answer Card    -->
-<!--        /// Answer Card  -->
+        <div class="card-body bg-light">
+          <small class="blockquote font-italic lead">Description :</small>
+          {{question.description}}
+          <!--     Answer Card    -->
+          <!--        /// Answer Card  -->
         </div>
         <div class="card-footer">
+          <ul class="list-inline justify-content-between">
+            <li class="list-inline-item">
+              <h6><span class="badge badge-dark">Answers <span class="badge badge-light">{{question.answers.length}} </span></span></h6>
+            </li>
+            <li class="list-inline-item">
+              Posted on: {{question.dateCreated}}
+            </li>
+            <li class="list-inline-item">
+              Posted by: {{question.userName}}
+            </li>
+            <li class="list-inline-item">
 
+            </li>
+          </ul>
         </div>
       </div>
 
 
 
 
-<!--      -----------------------------                         -->
+      <!--      -----------------------------                         -->
 
-        <div class="question-title"></div>
-        <div class="question-description">{{question.description}}</div>
-        <div class="answer-count">{{question.answers.length}} Answers</div>
-        <div class="date-created">Posted on: {{question.dateCreated}}</div>
-        <div class="author-name">Posted by: {{question.userName}}</div>
-        <div class="top-answer"><br>{{question.topAnswerUser}}: {{question.topAnswerContent}}</div>
-      </div>
-      <br>
+      <!--        <div class="top-answer"><br>{{question.topAnswerUser}}: {{question.topAnswerContent}}</div>-->
 
-<!--      -->
-    </div>
+    </div>   <!-- //This one is for loop-->
+    <br>
+
+    <!--      -->
   </div>
-  <div class="card-footer pb-0 pt-3">
-    <jw-pagination [items]="questions" [pageSize]="6" (changePage)="onChangePage($event)"></jw-pagination>
-  </div>
-<!--</div>-->
+</div>
+
+
+<!---->
+<div class="card-footer pb-0 pt-3">
+  <jw-pagination [items]="questions" [pageSize]="6" (changePage)="onChangePage($event)"></jw-pagination>
+</div>
