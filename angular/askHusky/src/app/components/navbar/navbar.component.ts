@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
   }
 
   goToProfile() {
-    this.router.navigate(['/dashboard/profile/:id']);
+    this.router.navigate(['/dashboard/profile']);
   }
 
   goToCreateQuestion() {

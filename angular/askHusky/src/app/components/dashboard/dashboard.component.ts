@@ -13,6 +13,6 @@ export class DashboardComponent implements OnInit {
   constructor(private router: Router, private loginSignupService: LoginSignupService) { }
 
   ngOnInit() {
-    // this.router.navigate(['']);
+    // this.router.navigate('dashboard/');
   }
 }

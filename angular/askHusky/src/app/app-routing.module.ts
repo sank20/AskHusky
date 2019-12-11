@@ -19,11 +19,13 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     children: [
-      {path: 'profile/:id', component: ProfileComponent},
+      {path: 'profile', component: ProfileComponent},
       {path: 'request-events', component: EventRequestComponent},
       {path: 'create-question', component: CreateQuestionComponent},
       {path: 'request-view', component: EventViewRequestsComponent},
-      {path : 'question-details', component : QuestionDetailComponent}
+      {path : 'question-details', component : QuestionDetailComponent},
+      {path : 'question-list', component : QuestionsListComponent},
+      // {path : 'dashboard', redirectTo: 'question-list'}
     ]
   }];
 @NgModule({
