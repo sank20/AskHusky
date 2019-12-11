@@ -70,7 +70,7 @@ data => {console.log(data);
               },
 error => console.log(error)
     );
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
 
   }
 

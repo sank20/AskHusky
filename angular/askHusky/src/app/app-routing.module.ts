@@ -11,12 +11,16 @@ import { EventViewRequestsComponent } from './components/event-view-requests/eve
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'profile/:id', component: ProfileComponent},
-  {path : 'request-events', component : EventRequestComponent},
-  {path : 'request-view', component : EventViewRequestsComponent},
-
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      {path: '', component: DashboardComponent},
+      {path: 'profile/:id', component: ProfileComponent},
+      {path: 'request-events', component: EventRequestComponent},
+      {path: 'request-view', component: EventViewRequestsComponent}
+    ]
+  }
 ];
 
 @NgModule({

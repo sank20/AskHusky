@@ -12,13 +12,7 @@ export class DashboardComponent implements OnInit {
   constructor(private loginSignupService : LoginSignupService) { }
 
   ngOnInit() {
-    this.nextMethod();
-  }
-  nextMethod(){
-    this.loginSignupService.changePassword({}).subscribe(
-      data => console.log(data),
-      error => console.log(error)
 
-    );
-  };
+  }
+
 }

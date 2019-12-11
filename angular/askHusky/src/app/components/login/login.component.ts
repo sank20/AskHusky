@@ -26,11 +26,13 @@ export class LoginComponent implements OnInit {
           this.userService.setterToken(data['token']);
           this.userService.setterUser(data['data']);
           this.router.navigate(['/dashboard']);
+        }else{
+          alert('Authentication Failed');
         }
       },
       error => {
         console.log(error);
-        alert("Invalid Login ID/ Password");
+        alert('Invalid Login ID/ Password');
       }
     );
 
