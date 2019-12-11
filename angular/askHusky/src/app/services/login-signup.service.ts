@@ -25,8 +25,8 @@ export class LoginSignupService {
   }
 
 
-  fetchTags(){
-    return this.http.get(this.baseUri + '/tags', {headers: this.headers});}
+  fetchTags() {
+    return this.http.get(this.baseUri + '/tags', {headers: this.headers}); }
 
   changePassword(changePasswordObj: object) {
     return this.http.put(this.baseUri + '/changePassword', changePasswordObj, {headers: this.headers});

@@ -2,6 +2,8 @@
   <a class="navbar-brand" href="#">Navbar</a>
 
 <div class="float-right">
+  <label id="userNameLabel">{{ user.userName}}</label>
+  <a routerLink="/request-events" routerLinkActive="active-link">Bob</a>
 <form class="form-inline my-2 my-lg-0 float-right">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="goToProfile();">Profile</button>
 </form>
