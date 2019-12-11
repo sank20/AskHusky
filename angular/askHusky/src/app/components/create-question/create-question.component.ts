@@ -16,6 +16,7 @@ import {HttpHeaders} from '@angular/common/http';
 export class CreateQuestionComponent implements OnInit {
   private user: User;
   private tags: any;
+  private tagsList: any;
   private question: string;
   private content: any;
   private questionData: any = {
@@ -34,7 +35,9 @@ export class CreateQuestionComponent implements OnInit {
     this.questionData.user = this.user;
     console.log('Question creation initialised');
 
-    this.questionService.fetchTags().subscribe(tagList => this.tags = tagList);
+    this.questionService.fetchTags().subscribe(tagList => {this.tagsList = tagList;
+                                                           console.log(this.tagsList);
+    });
   }
 
   createQuestion(): any {
