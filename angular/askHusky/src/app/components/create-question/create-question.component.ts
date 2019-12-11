@@ -38,7 +38,7 @@ export class CreateQuestionComponent implements OnInit {
   }
 
   createQuestion(): any {
-    let t: any = [];
+    const t: any = [];
     for (let i = 0; i < this.tags.length; i++) {
       t[i] = this.tags[i].tagName;
     }
@@ -46,48 +46,7 @@ export class CreateQuestionComponent implements OnInit {
     this.questionData.tags = t;
     this.questionData.userName = this.user.userName;
     this.questionService.createQuestion(this.questionData).subscribe((d) => console.log(d));
-  };
-
-  // fetchTags(): any {
-  //   this.loginSignupService.fetchTags().subscribe(
-  //     data => {
-  //       this.tags = data;
-  //       console.log(this.tags);
-  //     },
-  //     error => this.tags = []
-  //   );
-  // }
-  //
-  // submitNewQuestion() {
-  //   this.loginSignupService.signupUser(this.user).subscribe(
-  //     data => console.log(data),
-  //     error => console.log(error)
-  //   );
-  //   this.router.navigate(['/']);
-  // }
+  }
 
 }
-//
-//
-//
-//
-//
-//
-// export class SignupComponent implements OnInit {
-//
-//   constructor(private loginSignupService: LoginSignupService, private router: Router) { }
-//
-//   ngOnInit() {
-//     this.user = new User();
-//     console.log('Signup initialised');
-//   }
-//
-//   signupUser() {
-//     this.loginSignupService.signupUser(this.user).subscribe(
-//       data => console.log(data),
-//       error => console.log(error)
-//     );
-//     this.router.navigate(['/']);
-//   }
-//
-// }
+

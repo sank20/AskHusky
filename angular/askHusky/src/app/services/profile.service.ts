@@ -9,7 +9,7 @@
 // @Injectable()
 // export class ProfileService {
 // // URL for CRUD operations
-//   articleUrl = 'http://localhost:3000/profile'; // puchna h hardik se
+//   articleUrl = 'http://localhost:3000/profile'; //
 //   // Create constructor to get Http instance
 //   constructor(private http: Http) {
 //   }

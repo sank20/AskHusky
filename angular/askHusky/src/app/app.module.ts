@@ -22,9 +22,9 @@ import {HttpInterceptor} from '@angular/common/http';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { EventViewRequestsComponent } from './components/event-view-requests/event-view-requests.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import {TagInputModule} from "ngx-chips";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
+import {TagInputModule} from 'ngx-chips';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {JwPaginationComponent} from 'jw-angular-pagination';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
 
