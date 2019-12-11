@@ -49,7 +49,6 @@ import { QuestionDetailComponent } from './components/question-detail/question-d
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     ArchwizardModule,
     NgbModule,
