@@ -47,7 +47,6 @@ import {JwPaginationComponent} from 'jw-angular-pagination';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     ArchwizardModule,
     NgbModule,
